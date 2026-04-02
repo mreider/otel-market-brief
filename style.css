@@ -14,6 +14,28 @@
   }
 }
 
+/* download links */
+.downloads {
+  position: absolute;
+  top: 1.8em;
+  right: 2em;
+  display: flex;
+  gap: 1.2em;
+}
+
+.downloads a {
+  font: 0.7em/1 'Crimson Text', serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #aaa;
+  transition: color 0.2s;
+}
+
+.downloads a:hover {
+  color: #444;
+}
+
 body {
   font: 13pt/1.55 'Crimson Text', 'Georgia', serif;
   color: #1a1a1a;

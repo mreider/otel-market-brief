@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+@page {
+  size: letter;
+  margin: 0.75in 0.8in 0.75in 0.8in;
+
+  @bottom-center {
+    content: counter(page);
+    font: 8pt 'Crimson Text', Georgia, serif;
+    color: #999;
+  }
+}
+
+@page :first {
+  @bottom-center { content: none; }
+}
+
+body {
+  font: 10.5pt/1.5 'Crimson Text', Georgia, serif;
+  color: #1a1a1a;
+  widows: 2;
+  orphans: 2;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-decoration-color: #bbb;
+  text-underline-offset: 2px;
+}
+
+/* ---- Header ---- */
+h1 {
+  font: 1.8em/1.15 'Crimson Text', Georgia, serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 0.1em;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin: 0 0 1.5em;
+  font-size: 0.9em;
+}
+
+/* ---- TOC ---- */
+.toc {
+  border-top: 0.5pt solid #1a1a1a;
+  border-bottom: 0.5pt solid #1a1a1a;
+  padding: 0.8em 0;
+  margin-bottom: 1.5em;
+  page-break-after: always;
+}
+
+.toc-label {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 0.85em;
+  margin-bottom: 0.5em;
+}
+
+.toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 2em;
+  column-rule: 0.2pt solid #ccc;
+}
+
+.toc li {
+  break-inside: avoid;
+  padding: 0.08em 0;
+}
+
+.toc a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.toc .num {
+  display: inline-block;
+  width: 1.6em;
+  text-align: right;
+  margin-right: 0.4em;
+  color: #999;
+  font-size: 0.8em;
+}
+
+/* ---- Phase headings ---- */
+.phase {
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  font-size: 1.1em;
+  color: #444;
+  text-align: center;
+  margin: 2em 0 1em;
+  border-bottom: 0.5pt solid #bbb;
+  padding-bottom: 0.4em;
+  page-break-after: avoid;
+  page-break-before: always;
+}
+
+/* Don't break before the very first phase */
+body > .phase:first-of-type {
+  page-break-before: avoid;
+}
+
+/* ---- Entries ---- */
+.entry {
+  margin-bottom: 1.3em;
+  page-break-inside: avoid;
+}
+
+.entry-head {
+  font-weight: 700;
+  font-size: 1em;
+  margin-bottom: 0.15em;
+  page-break-after: avoid;
+}
+
+.entry-num {
+  color: #777;
+  font-weight: 400;
+  font-size: 0.8em;
+  margin-right: 0.3em;
+}
+
+.entry p {
+  margin: 0.35em 0 0;
+  text-indent: 0;
+}
+
+.term { font-weight: 600; }
+.it { font-style: italic; }
+
+/* ---- Example blocks ---- */
+.ex {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72em;
+  line-height: 1.5;
+  background: #f5f5f0;
+  border-left: 1.5pt solid #999;
+  padding: 0.5em 0.7em;
+  margin: 0.4em 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  page-break-inside: avoid;
+}
+
+/* ---- Definition lists ---- */
+.defs {
+  margin: 0.8em 0;
+  padding: 0;
+  display: block;
+  border-top: 0.5pt solid #ddd;
+  border-bottom: 0.5pt solid #ddd;
+}
+
+.defs dt {
+  font-weight: 600;
+  margin-top: 0.3em;
+}
+
+.defs dd {
+  margin: 0.05em 0 0.3em 1.4em;
+}
+
+.defs a {
+  color: #1a1a1a;
+}
+
+/* ---- Notes ---- */
+.note {
+  font-style: italic;
+  color: #555;
+  font-size: 0.9em;
+  margin: 0.35em 0;
+}
+
+/* ---- SVG charts ---- */
+.chart, svg.chart {
+  display: block;
+  margin: 1.2em auto;
+  width: 100%;
+  height: auto;
+  page-break-inside: avoid;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Footer ---- */
+footer {
+  display: none;
+}
+
+/* ---- Downloads link ---- */
+.downloads {
+  display: none;
+}
