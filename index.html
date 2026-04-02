@@ -460,11 +460,22 @@ gen_ai.operation.name         gen_ai.system</div>
     </svg>
 
     <p><span class="term">OTel-native backends</span> compete directly with Datadog and Dynatrace on the premise that open-standard collection plus a purpose-built backend delivers comparable value at lower cost and without lock-in. Dash0&rsquo;s $1B valuation in under three years is the proof point for this thesis.</p>
+    <p class="note">Caveat: OTel-native backends are only as good as the data they receive. Without a proprietary agent, there is no automatic topology discovery, no runtime metadata enrichment, and no code-level profiling. Cross-signal correlation in a pure OTel model often relies on exemplars &ndash; sampled links from a metric to a representative trace &ndash; rather than full server-side correlation. A capable backend like Dynatrace or Datadog can correlate any anomalous metric data point to the exact trace that produced it because it holds all the data in one place. Exemplar-based linking is probabilistic by comparison: you get a sample, not a guarantee. For teams that need deep application-level insight, an OTel-native backend with exemplars is not a substitute for a backend that does the correlation itself.</p>
+
     <p><span class="term">eBPF zero-code instrumentation</span> attacks the primary friction point of OTel adoption &ndash; that SDK-based instrumentation requires developer effort. If kernel-level eBPF can deliver baseline visibility through an open standard, the value proposition of proprietary agents narrows. The OTel OBI SIG (Grafana, Splunk, Odigos, Coralogix) is the community effort; Groundcover is the funded commercial play.</p>
+    <p class="note">Caveat: eBPF operates at the kernel and network protocol level. It sees HTTP requests, database calls, gRPC &ndash; and from those it produces RED metrics (rate, errors, duration) per endpoint per service. It does not see inside application code: no method-level traces, no business transaction context, no custom spans, no exception stack traces. What you get is golden signals for each service endpoint &ndash; invaluable as a baseline, but coarse compared to what SDK instrumentation or a proprietary agent like OneAgent provides. eBPF tells you <span class="it">which service is slow</span>; SDK instrumentation tells you <span class="it">which method in which class is slow and why</span>. Grafana Labs itself <a href="https://grafana.com/blog/why-opentelemetry-instrumentation-needs-both-ebpf-and-sdks/">frames this explicitly</a>: eBPF for automatic baseline visibility, SDKs for application-specific depth. The two are complementary, not substitutes.</p>
+
     <p><span class="term">AI agent tracing</span> is the most novel category. Existing observability tools were designed for request/response architectures. AI agents that run for hours, use tools, retrieve documents, and make branching decisions require new tracing primitives &ndash; session replay, decision-path visualization, trajectory anomaly detection. Laminar, InfiniteWatch, and Helicone are early entrants.</p>
+    <p class="note">Caveat: The OTel GenAI semantic conventions for agent spans are still experimental and evolving. Agent architectures themselves are changing faster than any standard can track &ndash; what you instrument today (a LangChain chain, a CrewAI crew) may be obsolete in six months as frameworks consolidate or new paradigms emerge. Long-running agents also create a cardinality and storage problem: an agent session that runs for hours can generate thousands of spans, and the cost of storing and querying those traces at scale is non-trivial. The tooling is early; the abstractions are unstable; and it remains unclear whether AI agent tracing will converge into OTel or remain a specialized layer alongside it.</p>
+
     <p><span class="term">LLM evaluation and monitoring</span> is adjacent to but distinct from traditional observability. Arize and Braintrust focus on model quality (hallucination rates, evaluation benchmarks, prompt/response scoring) rather than infrastructure metrics. This is largely a greenfield market &ndash; incumbents are building but startups are further along.</p>
+    <p class="note">Caveat: &ldquo;Model quality&rdquo; is inherently subjective and domain-specific. A hallucination rate benchmark that works for a customer service chatbot does not transfer to a code generation agent or a medical summary tool. Most evaluation frameworks test prompt/response pairs in isolation but miss the infrastructure concerns that matter at scale &ndash; GPU utilization, inference latency percentiles, token cost attribution across teams. The market is so early and fragmented that today&rsquo;s funded startup may be next quarter&rsquo;s acqui-hire, as the Langfuse, Traceloop, and Helicone acquisitions in Q1 2026 demonstrate. The question is whether LLM eval remains a standalone category or gets absorbed into the observability platforms (Datadog LLM Observability, Coralogix AI Center) as a feature.</p>
+
     <p><span class="term">Telemetry pipelines</span> sit between producers and consumers of observability data. They exist because observability costs have become untenable &ndash; Cribl&rsquo;s entire $3.5B valuation rests on the fact that enterprises pay too much to store and query telemetry they don&rsquo;t need.</p>
+    <p class="note">Caveat: A pipeline is a new layer of operational complexity and a potential single point of failure between your applications and your backends. Filtering and transforming data before it reaches the backend reduces cost but also risks dropping signal &ndash; the log line you filtered out today may be the one you needed for tomorrow&rsquo;s incident. Teams must maintain pipeline configuration (routing rules, sampling policies, transformation logic) in addition to backend configuration, doubling the operational surface. And the pipeline itself creates a new form of vendor dependency: migrating off Cribl is its own project.</p>
+
     <p><span class="term">K8s-native + AI SRE</span> platforms combine Kubernetes-specific telemetry with AI-driven troubleshooting. The bet is that Kubernetes environments are complex enough and distinct enough from traditional infrastructure to warrant purpose-built tools rather than general-purpose platforms with K8s add-ons.</p>
+    <p class="note">Caveat: Kubernetes-only scope limits the addressable market. Most enterprises run hybrid environments &ndash; K8s alongside VMs, serverless functions, legacy on-prem, and increasingly AI inference infrastructure that may not be containerized. An AI SRE agent that only understands Kubernetes cannot correlate a pod failure with a downstream database timeout on a VM or an upstream API gateway running on Lambda. AI-driven troubleshooting is also early &ndash; high false positive rates, limited reasoning about novel failure modes, and a tendency to surface the obvious rather than the subtle. The value is real for K8s-heavy organizations, but the narrow scope makes these platforms complementary to, not replacements for, general-purpose observability.</p>
   </div>
 
   <div class="entry" id="recent-acquisitions">
@@ -571,59 +582,6 @@ gen_ai.operation.name         gen_ai.system</div>
     <p><span class="term">OTel-native is table stakes.</span> Every funded startup is built on OTel or at minimum OTLP-compatible. Proprietary-only instrumentation is no longer fundable for new entrants.</p>
     <p><span class="term">AI observability draws disproportionate capital.</span> Arize ($131M), Braintrust ($800M valuation), the Langfuse acquisition, and the Aporia acquisition all reflect a bet on the AI workload monitoring opportunity. Capital is flowing ahead of revenue.</p>
     <p><span class="term">Everyone is buying, not building.</span> Seven acquisitions in twelve months &ndash; by a data warehouse, a database engine, an IT workflow platform, a developer docs company, a feature flag vendor, and two observability startups &ndash; demonstrate that the build-vs-buy calculus has tipped across the entire software stack. The velocity of the AI market and the architectural specificity of OTel-native backends make organic development too slow. Traceloop&rsquo;s ~10&ndash;13x return on $6.1M raised, achieved in under three years, sets the benchmark for what small OTel-native AI observability startups can exit for.</p>
-
-    <svg class="chart" viewBox="0 0 460 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Startup landscape scatter/bubble -->
-      <text x="230" y="14" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#999" font-style="italic" text-anchor="middle">Startup landscape: funding vs. acquisition likelihood</text>
-      <!-- axes -->
-      <line x1="40" y1="30" x2="40" y2="220" stroke="#ccc" stroke-width="0.5"/>
-      <line x1="40" y1="220" x2="440" y2="220" stroke="#ccc" stroke-width="0.5"/>
-      <text x="240" y="245" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#999" text-anchor="middle">Total funding &rarr;</text>
-      <text x="15" y="125" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#999" text-anchor="middle" transform="rotate(-90 15 125)">Acquisition likelihood &rarr;</text>
-      <!-- scale marks -->
-      <text x="40" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$0</text>
-      <text x="140" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$50M</text>
-      <text x="240" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$150M</text>
-      <text x="340" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$300M</text>
-      <text x="440" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$400M</text>
-      <!-- Bubbles: x = funding, y = acq likelihood (lower = higher), size = relative significance -->
-      <!-- SigNoz: $6.5M, high acq -->
-      <circle cx="53" cy="55" r="8" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="53" y="44" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">SigNoz</text>
-      <!-- Helicone: $0.5M, high acq -->
-      <circle cx="41" cy="70" r="6" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="55" y="73" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666">Helicone</text>
-      <!-- Laminar: $3M, high acq -->
-      <circle cx="46" cy="60" r="6" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="46" y="50" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle" style="display:none">Laminar</text>
-      <!-- Odigos: $13M, med-high -->
-      <circle cx="66" cy="85" r="9" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="66" y="75" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Odigos</text>
-      <!-- Groundcover: $60M, med-high -->
-      <circle cx="120" cy="80" r="11" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="120" y="68" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Groundcover</text>
-      <!-- Honeycomb: $150M, high -->
-      <circle cx="240" cy="55" r="12" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="240" y="43" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Honeycomb</text>
-      <!-- Arize: $131M, med-high -->
-      <circle cx="215" cy="80" r="13" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="215" y="68" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Arize AI</text>
-      <!-- Coralogix: $115M (E round), medium -->
-      <circle cx="195" cy="130" r="14" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="195" y="118" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Coralogix</text>
-      <!-- Dash0: $155M, med-term -->
-      <circle cx="250" cy="140" r="14" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="250" y="128" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Dash0</text>
-      <!-- Braintrust: $80M, medium -->
-      <circle cx="136" cy="120" r="11" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="136" y="108" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Braintrust</text>
-      <!-- Chronosphere: $343M, medium -->
-      <circle cx="353" cy="140" r="15" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="353" y="128" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Chronosphere</text>
-      <!-- Cribl: $319M, low (IPO) -->
-      <circle cx="340" cy="200" r="16" fill="none" stroke="#999" stroke-width="0.8"/>
-      <text x="340" y="188" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Cribl</text>
-    </svg>
 
     <dl class="defs defs-wide">
       <dt>Dash0</dt>
