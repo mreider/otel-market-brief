@@ -23,26 +23,29 @@ ROOT = Path(__file__).resolve().parent.parent
 PDF_DIR = Path(__file__).resolve().parent
 
 
-def build():
+def _prep_soup(html_path):
+    """Parse HTML file and strip web-only elements for print."""
     from bs4 import BeautifulSoup, Comment
-    import weasyprint
 
-    html = (ROOT / "index.html").read_text()
+    html = html_path.read_text()
     soup = BeautifulSoup(html, "html.parser")
 
-    # Remove web-only elements
     for el in soup.find_all("footer"):
         el.decompose()
     for el in soup.find_all("div", class_="downloads"):
         el.decompose()
-
-    # Remove HTML comments (em-dash dividers leak as visible text)
     for comment in soup.find_all(string=lambda t: isinstance(t, Comment)):
         comment.extract()
-
-    # Swap the web stylesheet for the print one
     for link in soup.find_all("link", rel="stylesheet"):
         link.decompose()
+
+    return soup
+
+
+def build_market_brief():
+    import weasyprint
+
+    soup = _prep_soup(ROOT / "index.html")
 
     print_css = (PDF_DIR / "print.css").read_text()
     style_tag = soup.new_tag("style")
@@ -78,7 +81,31 @@ def build():
     print(f"  PDF → {out}")
 
 
+def build_one_pager():
+    import weasyprint
+
+    src = ROOT / "one-pager.html"
+    if not src.exists():
+        print("  one-pager.html not found, skipping")
+        return
+
+    soup = _prep_soup(src)
+
+    print_css = (PDF_DIR / "print.css").read_text()
+    style_tag = soup.new_tag("style")
+    style_tag.string = print_css
+    soup.head.append(style_tag)
+
+    out = ROOT / "downloads" / "otel-one-pager.pdf"
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    doc = weasyprint.HTML(string=str(soup), base_url=str(ROOT))
+    doc.write_pdf(str(out))
+    print(f"  PDF → {out}")
+
+
 if __name__ == "__main__":
-    print("Building PDF...\n")
-    build()
+    print("Building PDFs...\n")
+    build_market_brief()
+    build_one_pager()
     print("\nDone.")

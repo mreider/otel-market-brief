@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTel, AI &amp; Observability: What Matters Now</title>
+  <meta name="description" content="A one-page distillation of OpenTelemetry's impact on the observability market, AI intersection, and competitive dynamics. April 2026.">
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+  <div class="downloads">
+    <a href="downloads/otel-one-pager.pdf" target="_blank" rel="noopener">PDF</a>
+  </div>
+
+  <h1>OTel, AI &amp; Observability: What Matters Now</h1>
+  <p class="subtitle">Matthew Reider &middot; April 2026</p>
+
+  <p class="note">Distilled from the <a href="index.html">full brief</a>.</p>
+
+  <!-- ——————————————————————————— -->
+  <div class="phase">The Market</div>
+  <!-- ——————————————————————————— -->
+
+  <div class="entry">
+    <p>Observability is roughly a <span class="term">$12B market</span> growing at ~20% annually. Datadog leads at $3.4B revenue (+28% YoY), followed by Dynatrace at $1.7B (+19%) and Grafana Labs at $400M+ ARR (~60% growth). Consolidation is accelerating: Cisco bought Splunk for $28B, New Relic went private at $6.5B, and Snowflake is acquiring Observe for ~$1B.</p>
+  </div>
+
+  <!-- ——————————————————————————— -->
+  <div class="phase">OpenTelemetry Is Winning</div>
+  <!-- ——————————————————————————— -->
+
+  <div class="entry">
+    <p>OTel is the #2 CNCF project behind Kubernetes. <span class="term">48% of enterprises are using it today</span>, with another 50% planning to or evaluating. Traces, metrics, and logs are all GA. Profiling just hit alpha. All three major clouds now support OTLP ingestion natively.</p>
+    <p class="note">OTel commoditizes telemetry collection and makes switching backends a config change instead of a re-instrumentation project. Vendor differentiation shifts to analytics, AI, UX, and platform breadth.</p>
+  </div>
+
+  <!-- ——————————————————————————— -->
+  <div class="phase">What This Means for Datadog</div>
+  <!-- ——————————————————————————— -->
+
+  <div class="entry">
+    <p>Datadog&rsquo;s proprietary agent is both its moat and its vulnerability. It drives cross-sell into 20+ products &ndash; but when customers adopt the OTel Collector instead, Datadog loses control of the data pipeline. The response: <span class="term">DDOT</span> (Datadog Distribution of the OTel Collector), bundling DD-specific processors into a vendor-branded Collector.</p>
+
+    <dl class="defs">
+      <dt>Attribute flattening</dt>
+      <dd>OTel&rsquo;s hierarchical model (resource / scope / span) must be collapsed into DD&rsquo;s flat <code>key:value</code> tags &ndash; lossy by design.</dd>
+      <dt>Metrics temporality</dt>
+      <dd>OTel SDKs default to cumulative; DD requires delta, forcing customer-side conversion.</dd>
+      <dt>Query fragmentation</dt>
+      <dd>Different DSLs per signal (metrics DSL, Lucene for logs/traces, DDSQL) vs. Dynatrace&rsquo;s single DQL or Grafana&rsquo;s OTel-native TraceQL.</dd>
+    </dl>
+  </div>
+
+  <!-- ——————————————————————————— -->
+  <div class="phase">AI Observability Is the Growth Story</div>
+  <!-- ——————————————————————————— -->
+
+  <div class="entry">
+    <p>The AI observability sub-market is projected at <span class="term">$6.8B by 2029 (36% CAGR)</span> &ndash; 3x the growth rate of traditional observability. Two dimensions:</p>
+
+    <dl class="defs">
+      <dt>AI for observability</dt>
+      <dd>Datadog&rsquo;s Bits AI (LLM-driven correlation) vs. Dynatrace&rsquo;s Davis AI (causal, topology-aware). Every vendor now ships AI-assisted features.</dd>
+      <dt>Observability for AI</dt>
+      <dd>Monitoring LLM inference, token costs, agent traces, GPU utilization. DD landed an 8-figure deal with a leading AI model company in Q4 2025.</dd>
+    </dl>
+
+    <p>OTel&rsquo;s GenAI semantic conventions (model spans, token usage, agent traces) are positioning it as the <span class="term">neutral instrumentation layer for AI workloads</span> &ndash; the same role it played for microservices.</p>
+  </div>
+
+  <!-- ——————————————————————————— -->
+  <div class="phase">Startups &amp; Acquisitions to Know</div>
+  <!-- ——————————————————————————— -->
+
+  <div class="entry">
+    <dl class="defs defs-wide">
+      <dt>Dash0 <span style="font-weight:400;color:#999;font-size:0.85em">$1B val</span></dt>
+      <dd>OTel-native from day one, ex-Instana team, 600+ customers, fastest grower</dd>
+      <dt>Cribl <span style="font-weight:400;color:#999;font-size:0.85em">$3.5B val</span></dt>
+      <dd>Telemetry pipeline between producers and backends; likely IPO</dd>
+      <dt>Arize AI <span style="font-weight:400;color:#999;font-size:0.85em">$131M raised</span></dt>
+      <dd>Leading AI observability; Datadog is a strategic investor</dd>
+      <dt>Groundcover <span style="font-weight:400;color:#999;font-size:0.85em">$60M</span></dt>
+      <dd>eBPF-based K8s observability, zero instrumentation, BYOC model</dd>
+      <dt>Braintrust <span style="font-weight:400;color:#999;font-size:0.85em">$800M val</span></dt>
+      <dd>&ldquo;Observability layer for AI&rdquo; &ndash; AI eval and monitoring</dd>
+    </dl>
+    <p>Every funded startup in the space is OTel-native. Incumbents are buying what they can&rsquo;t build fast enough (Snowflake/Observe, ClickHouse/Langfuse, Dash0/Lumigo).</p>
+  </div>
+
+  <!-- ——————————————————————————— -->
+  <div class="phase">Three Takeaways</div>
+  <!-- ——————————————————————————— -->
+
+  <div class="entry">
+    <p><span class="term">1. OTel is table stakes.</span> The question isn&rsquo;t whether to support it &ndash; it&rsquo;s how natively your backend stores and queries OTel data without lossy translation.</p>
+    <p><span class="term">2. AI workloads are the next platform shift</span> for observability, and OTel&rsquo;s GenAI conventions could standardize this market the same way OTLP standardized APM.</p>
+    <p><span class="term">3. The competitive moat is moving upstream</span> &ndash; from &ldquo;who collects the data&rdquo; to &ldquo;who makes the data actionable&rdquo; through AI-driven analysis, automation, and developer experience.</p>
+  </div>
+
+  <footer>
+    Distilled from the <a href="index.html">full brief</a> &middot; <a href="https://github.com/mreider/otel-market-brief">Source</a>
+  </footer>
+
+</body>
+</html>
