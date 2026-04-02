@@ -276,14 +276,11 @@ footer a:hover {
     padding: 0.5in;
   }
   .phase {
-    page-break-before: always;
     margin-top: 1.5em;
+    page-break-after: avoid;
   }
-  .phase:first-of-type {
-    page-break-before: avoid;
-  }
-  .entry {
-    page-break-inside: avoid;
+  .entry-head {
+    break-after: avoid;
   }
   .toc {
     page-break-after: always;

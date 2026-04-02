@@ -102,25 +102,18 @@ h1 {
   border-bottom: 0.5pt solid #bbb;
   padding-bottom: 0.4em;
   page-break-after: avoid;
-  page-break-before: always;
-}
-
-/* Don't break before the very first phase */
-body > .phase:first-of-type {
-  page-break-before: avoid;
 }
 
 /* ---- Entries ---- */
 .entry {
   margin-bottom: 1.3em;
-  page-break-inside: avoid;
 }
 
 .entry-head {
   font-weight: 700;
   font-size: 1em;
   margin-bottom: 0.15em;
-  page-break-after: avoid;
+  break-after: avoid;
 }
 
 .entry-num {
