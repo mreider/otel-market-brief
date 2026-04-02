@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenTelemetry, AI, and the Observability Market</title>
   <meta name="description" content="A market brief on OpenTelemetry's impact on the observability landscape, the AI intersection, and emerging players. April 2026.">
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
       <li><a href="#market-size"><span class="num">1</span> Market Size</a></li>
       <li><a href="#vendor-revenue"><span class="num">2</span> Vendor Revenue</a></li>
       <li><a href="#consolidation"><span class="num">3</span> Consolidation</a></li>
-      <li><a href="#gartner-leaders"><span class="num">4</span> Gartner Leaders</a></li>
+      <li><a href="#cost-pressure"><span class="num">4</span> Cost Pressure</a></li>
       <li><a href="#otel-project"><span class="num">5</span> The OpenTelemetry Project</a></li>
       <li><a href="#signal-maturity"><span class="num">6</span> Signal Maturity</a></li>
       <li><a href="#enterprise-adoption"><span class="num">7</span> Enterprise Adoption</a></li>
@@ -26,18 +26,21 @@
       <li><a href="#vendor-positioning"><span class="num">9</span> Vendor Positioning</a></li>
       <li><a href="#cloud-providers"><span class="num">10</span> Cloud Provider Strategies</a></li>
       <li><a href="#beyond-apm"><span class="num">11</span> OTel Beyond APM</a></li>
-      <li><a href="#data-model"><span class="num">12</span> Data Model Translation</a></li>
-      <li><a href="#query-fragmentation"><span class="num">13</span> Query Fragmentation</a></li>
-      <li><a href="#genai-conventions"><span class="num">14</span> OTel GenAI Conventions</a></li>
-      <li><a href="#ai-for-observability"><span class="num">15</span> AI for Observability</a></li>
-      <li><a href="#observability-for-ai"><span class="num">16</span> Observability for AI</a></li>
-      <li><a href="#ai-market"><span class="num">17</span> AI Observability Market</a></li>
-      <li><a href="#recent-acquisitions"><span class="num">18</span> Recent Acquisitions</a></li>
-      <li><a href="#otel-native-startups"><span class="num">19</span> OTel-Native Startups</a></li>
-      <li><a href="#k8s-infra"><span class="num">20</span> Kubernetes &amp; Infrastructure</a></li>
-      <li><a href="#pipelines"><span class="num">21</span> Telemetry Pipelines</a></li>
-      <li><a href="#ai-startups"><span class="num">22</span> AI Observability Startups</a></li>
-      <li><a href="#patterns"><span class="num">23</span> Acquisition Patterns</a></li>
+      <li><a href="#ebpf"><span class="num">12</span> eBPF and OTel Convergence</a></li>
+      <li><a href="#data-model"><span class="num">13</span> Data Model Translation</a></li>
+      <li><a href="#query-fragmentation"><span class="num">14</span> Query Fragmentation</a></li>
+      <li><a href="#security"><span class="num">15</span> Security Convergence</a></li>
+      <li><a href="#genai-conventions"><span class="num">16</span> OTel GenAI Conventions</a></li>
+      <li><a href="#ai-for-observability"><span class="num">17</span> AI for Observability</a></li>
+      <li><a href="#observability-for-ai"><span class="num">18</span> Observability for AI</a></li>
+      <li><a href="#ai-market"><span class="num">19</span> AI Observability Market</a></li>
+      <li><a href="#recent-acquisitions"><span class="num">20</span> Recent Acquisitions</a></li>
+      <li><a href="#otel-native-startups"><span class="num">21</span> OTel-Native Startups</a></li>
+      <li><a href="#k8s-infra"><span class="num">22</span> Kubernetes &amp; Infrastructure</a></li>
+      <li><a href="#pipelines"><span class="num">23</span> Telemetry Pipelines</a></li>
+      <li><a href="#ai-startups"><span class="num">24</span> AI Observability Startups</a></li>
+      <li><a href="#early-stage"><span class="num">25</span> Early Stage &amp; Long Tail</a></li>
+      <li><a href="#patterns"><span class="num">26</span> Acquisition Patterns</a></li>
     </ol>
   </nav>
 
@@ -47,59 +50,90 @@
 
   <div class="entry" id="market-size">
     <div class="entry-head"><span class="entry-num">1.</span> Market Size</div>
-    <p>Analyst estimates for the observability market vary by scope. Narrow definitions covering observability tools and platforms cluster around $2&ndash;5B. Broader definitions that include adjacent infrastructure monitoring reach higher. All agree on double-digit growth.</p>
+    <p>Analyst estimates for the observability market vary by scope. Narrow definitions covering observability tools and platforms cluster around $2&ndash;5B. Broader definitions including adjacent infrastructure monitoring reach higher. All agree on double-digit growth.</p>
     <dl class="defs">
       <dt>MarketsandMarkets</dt>
-      <dd>$2.4B (2023) &rarr; $4.1B (2028), 11.7% CAGR. Scope: observability tools and platforms.</dd>
-      <dt>Grand View Research</dt>
-      <dd>$5.4B by 2030, 10.7% CAGR. Broader scope including adjacent monitoring categories.</dd>
+      <dd>$2.4B (2023) &rarr; $4.1B (2028), 11.7% CAGR. Scope: observability tools and platforms. (<a href="https://www.marketsandmarkets.com/Market-Reports/observability-tools-and-platforms-market-69804486.html">report</a>)</dd>
+      <dt>Grand View</dt>
+      <dd>$5.4B by 2030, 10.7% CAGR. Broader scope including adjacent monitoring categories. (<a href="https://www.grandviewresearch.com/industry-analysis/observability-tools-platforms-market-report">report</a>)</dd>
       <dt>Gartner</dt>
-      <dd>12% CAGR through 2027 for the observability sector within infrastructure software.</dd>
+      <dd>12% CAGR through 2027 for the observability sector within infrastructure software. (<a href="https://www.gartner.com/en/documents/5486095">report</a>)</dd>
     </dl>
     <p>Growth is driven by cloud-native complexity, Kubernetes adoption, the proliferation of microservices, and the emerging requirement to monitor AI workloads. Observability spend has become a top-three cloud cost line item for many enterprises, which simultaneously fuels demand and creates pricing sensitivity &ndash; a tension visible across the vendor landscape.</p>
-    <p class="sources"><a href="https://www.marketsandmarkets.com/Market-Reports/observability-tools-and-platforms-market-69804486.html">MarketsandMarkets</a> &#183; <a href="https://www.grandviewresearch.com/industry-analysis/observability-tools-platforms-market-report">Grand View Research</a> &#183; <a href="https://www.gartner.com/en/documents/5486095">Gartner</a></p>
+    <p>The 2025 <a href="https://www.gartner.com/en/documents/6688834">Gartner Magic Quadrant for Observability Platforms</a> evaluated 20 vendors and named six Leaders: Datadog (fifth consecutive year), Dynatrace (fifteenth consecutive year, highest on Ability to Execute), Elastic, Grafana Labs, IBM, and Splunk. Grafana Labs appeared as a Leader for the first time, reflecting the mainstreaming of open-source observability.</p>
   </div>
 
   <div class="entry" id="vendor-revenue">
     <div class="entry-head"><span class="entry-num">2.</span> Vendor Revenue</div>
-    <p>The public vendors reveal a market where the leader is pulling away on absolute revenue while an open-source challenger grows fastest on a percentage basis.</p>
+    <p>The public vendors reveal a market where the leader is pulling away on absolute revenue while an open-source challenger grows fastest by percentage.</p>
+
+    <svg class="chart" viewBox="0 0 460 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Vendor revenue bar chart -->
+      <text x="0" y="12" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#999" font-style="italic">Annual revenue / ARR ($M)</text>
+      <!-- Datadog -->
+      <text x="0" y="36" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a" text-anchor="start">Datadog</text>
+      <rect x="72" y="26" width="343" height="14" fill="#e8e4df" rx="1"/>
+      <text x="420" y="37" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">$3,427M &middot; +28%</text>
+      <!-- Dynatrace -->
+      <text x="0" y="60" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a" text-anchor="start">Dynatrace</text>
+      <rect x="72" y="50" width="170" height="14" fill="#e8e4df" rx="1"/>
+      <text x="248" y="61" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">$1,699M &middot; +19%</text>
+      <!-- Elastic -->
+      <text x="0" y="84" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a" text-anchor="start">Elastic</text>
+      <rect x="72" y="74" width="135" height="14" fill="#e8e4df" rx="1"/>
+      <text x="213" y="85" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">~$1,350M &middot; +18%</text>
+      <!-- Grafana Labs -->
+      <text x="0" y="108" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a" text-anchor="start">Grafana</text>
+      <rect x="72" y="98" width="40" height="14" fill="#d4cfc8" rx="1"/>
+      <text x="118" y="109" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">$400M ARR &middot; +60%</text>
+      <!-- Cribl -->
+      <text x="0" y="132" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a" text-anchor="start">Cribl</text>
+      <rect x="72" y="122" width="20" height="14" fill="#d4cfc8" rx="1"/>
+      <text x="98" y="133" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">$200M ARR</text>
+      <!-- scale -->
+      <line x1="72" y1="146" x2="72" y2="150" stroke="#ccc" stroke-width="0.5"/>
+      <text x="72" y="160" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#999" text-anchor="middle">0</text>
+      <line x1="172" y1="146" x2="172" y2="150" stroke="#ccc" stroke-width="0.5"/>
+      <text x="172" y="160" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#999" text-anchor="middle">1B</text>
+      <line x1="272" y1="146" x2="272" y2="150" stroke="#ccc" stroke-width="0.5"/>
+      <text x="272" y="160" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#999" text-anchor="middle">2B</text>
+      <line x1="372" y1="146" x2="372" y2="150" stroke="#ccc" stroke-width="0.5"/>
+      <text x="372" y="160" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#999" text-anchor="middle">3B</text>
+      <text x="266" y="175" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#aaa" font-style="italic" text-anchor="middle">Lighter bars = private ARR estimates &middot; All figures latest available FY</text>
+    </svg>
+
     <dl class="defs defs-wide">
       <dt>Datadog</dt>
-      <dd>FY2025 revenue $3.43B, up 28% YoY. Q4 revenue $953M, up 29%. Q4 bookings a record $1.63B including two deals above $100M TCV. Guided FY2026 at $4.06&ndash;4.10B (18&ndash;20% growth). 4,310 customers above $100K ARR representing ~90% of total ARR.</dd>
+      <dd>FY2025 revenue $3.43B, up 28% YoY. Q4 revenue $953M, up 29%. Record Q4 bookings of $1.63B included two deals above $100M TCV; one described as an eight-figure land with a leading AI model company. 4,310 customers above $100K ARR representing ~90% of total ARR. Guided FY2026 at $4.06&ndash;4.10B. (<a href="https://investors.datadoghq.com/news-releases/news-release-details/datadog-announces-fourth-quarter-and-fiscal-year-2025-financial">earnings release</a>; <a href="https://www.stocktitan.net/sec-filings/DDOG/10-k-datadog-inc-files-annual-report-3ecaa5579056.html">10-K</a>)</dd>
       <dt>Dynatrace</dt>
-      <dd>FY2025 (ending March 2025) revenue $1.70B, up 19% (20% constant currency). ARR $1.73B. FY2026 guidance raised to $1.99&ndash;2.00B revenue and $2.01&ndash;2.03B ARR.</dd>
+      <dd>FY2025 (ending March 2025) revenue $1.70B, up 19% (20% constant currency). Subscription revenue $1.62B. ARR $1.73B. FY2026 guidance raised to $1.99&ndash;2.00B revenue and $2.01&ndash;2.03B ARR. (<a href="https://ir.dynatrace.com/news-events/press-releases/detail/379/dynatrace-reports-fourth-quarter-and-full-year-fiscal-2025-financial-results">FY2025 results</a>; <a href="https://ir.dynatrace.com/news-events/press-releases/detail/400/dynatrace-reports-second-quarter-fiscal-year-2026-financial-results">Q2 FY2026</a>)</dd>
       <dt>Grafana Labs</dt>
-      <dd>Surpassed $400M ARR in September 2025, up from $250M in August 2024 (~60% growth). 7,000+ customers including 70% of the Fortune 50. Raised $250M Series E at ~$9B valuation in February 2026.</dd>
-      <dt>Elastic</dt>
-      <dd>FY2025 revenue estimated $1.3&ndash;1.4B. Observability is the company&rsquo;s fastest-growing segment. Elastic Cloud growing 25&ndash;30%, faster than the overall business.</dd>
+      <dd>Surpassed $400M ARR in September 2025, up from $250M in August 2024 (~60% growth). 7,000+ customers including 70% of the Fortune 50. Raised $250M Series E at ~$9B valuation in February 2026. (<a href="https://grafana.com/press/2025/09/30/grafana-labs-surpasses-400m-arr-and-7000-customers-gains-new-investors-to-accelerate-global-expansion/">press release</a>; <a href="https://siliconangle.com/2026/02/13/grafana-labs-reportedly-raising-funding-9b-valuation/">SiliconANGLE</a>)</dd>
       <dt>Splunk / Cisco</dt>
-      <dd>Acquired by Cisco for $28B (March 2024). Pre-acquisition ARR ~$4.2B, heavily weighted toward SIEM/log analytics. AppDynamics merged into Splunk&rsquo;s observability unit post-acquisition.</dd>
+      <dd>Acquired by Cisco for $28B (March 2024). Pre-acquisition ARR ~$4.2B, heavily weighted toward SIEM/log analytics. AppDynamics merged into Splunk&rsquo;s observability unit. (<a href="https://investor.cisco.com/news/news-details/2024/Cisco-Completes-Acquisition-of-Splunk/default.aspx">Cisco IR</a>)</dd>
       <dt>New Relic</dt>
-      <dd>Taken private by Francisco Partners and TPG for $6.5B (November 2023). Last reported ARR ~$1.0&ndash;1.1B. Limited financial visibility since.</dd>
+      <dd>Taken private by Francisco Partners and TPG for $6.5B (November 2023). Last reported ARR ~$1.0&ndash;1.1B. Limited visibility since. (<a href="https://newrelic.com/press-release/20231108">press release</a>; <a href="https://www.cnbc.com/2023/07/31/francisco-partners-tpg-to-take-new-relic-private-in-6-billion-deal.html">CNBC</a>)</dd>
     </dl>
-    <p class="sources"><a href="https://investors.datadoghq.com/news-releases/news-release-details/datadog-announces-fourth-quarter-and-fiscal-year-2025-financial">Datadog IR</a> &#183; <a href="https://www.stocktitan.net/sec-filings/DDOG/10-k-datadog-inc-files-annual-report-3ecaa5579056.html">Datadog 10-K</a> &#183; <a href="https://ir.dynatrace.com/news-events/press-releases/detail/379/dynatrace-reports-fourth-quarter-and-full-year-fiscal-2025-financial-results">Dynatrace FY2025</a> &#183; <a href="https://ir.dynatrace.com/news-events/press-releases/detail/400/dynatrace-reports-second-quarter-fiscal-year-2026-financial-results">Dynatrace Q2 FY2026</a> &#183; <a href="https://grafana.com/press/2025/09/30/grafana-labs-surpasses-400m-arr-and-7000-customers-gains-new-investors-to-accelerate-global-expansion/">Grafana Labs</a> &#183; <a href="https://siliconangle.com/2026/02/13/grafana-labs-reportedly-raising-funding-9b-valuation/">SiliconANGLE</a></p>
   </div>
 
   <div class="entry" id="consolidation">
     <div class="entry-head"><span class="entry-num">3.</span> Consolidation</div>
-    <p>The mid-tier of the market is being absorbed. Private equity and strategic acquirers have executed three landmark transactions in the past three years, each reshaping the competitive landscape.</p>
+    <p>The mid-tier of the market is being absorbed. Private equity and strategic acquirers have executed landmark transactions that reshaped the competitive landscape. The pattern bifurcates the market into large platforms (Datadog, Dynatrace, Cisco/Splunk) and open-source or OTel-native challengers (Grafana Labs, Dash0, Chronosphere). The middle ground &ndash; proprietary but sub-scale &ndash; is increasingly untenable.</p>
     <dl class="defs">
       <dt>Cisco / Splunk</dt>
-      <dd>$28B (March 2024). Cisco merged AppDynamics and ThousandEyes into Splunk&rsquo;s observability organization, creating the largest combined observability revenue base by installed base.</dd>
+      <dd>$28B (March 2024). Created the largest combined observability + SIEM revenue base. Cisco merged AppDynamics and ThousandEyes into Splunk&rsquo;s unit. (<a href="https://www.networkworld.com/article/2066444/cisco-completes-28-billion-splunk-acquisition.html">Network World</a>)</dd>
       <dt>New Relic</dt>
-      <dd>$6.5B take-private by Francisco Partners and TPG (November 2023). Consumption-pricing pivot had gained traction but created revenue volatility.</dd>
-      <dt>Sumo Logic</dt>
-      <dd>Acquired by Francisco Partners (2023). Cloud SIEM and observability, repositioned alongside New Relic within the same PE portfolio.</dd>
+      <dd>$6.5B take-private (November 2023). Consumption-pricing pivot had gained traction but created revenue volatility that public markets punished. (<a href="https://www.cnbc.com/2023/07/31/francisco-partners-tpg-to-take-new-relic-private-in-6-billion-deal.html">CNBC</a>)</dd>
+      <dt>Observe</dt>
+      <dd>~$1B acquisition by Snowflake (announced January 2026). Snowflake&rsquo;s largest deal; signals data platform companies see observability as a natural extension. (<a href="https://techcrunch.com/2026/01/08/snowflake-announces-its-intent-to-buy-observability-platform-observe/">TechCrunch</a>)</dd>
     </dl>
-    <p>The consolidation pattern bifurcates the market into large platforms (Datadog, Dynatrace, Cisco/Splunk) and open-source or OTel-native challengers (Grafana Labs, Dash0, Chronosphere). The middle ground &ndash; proprietary but sub-scale &ndash; is increasingly untenable.</p>
-    <p class="sources"><a href="https://investor.cisco.com/news/news-details/2024/Cisco-Completes-Acquisition-of-Splunk/default.aspx">Cisco IR</a> &#183; <a href="https://www.networkworld.com/article/2066444/cisco-completes-28-billion-splunk-acquisition.html">Network World</a> &#183; <a href="https://newrelic.com/press-release/20231108">New Relic</a> &#183; <a href="https://www.cnbc.com/2023/07/31/francisco-partners-tpg-to-take-new-relic-private-in-6-billion-deal.html">CNBC</a></p>
   </div>
 
-  <div class="entry" id="gartner-leaders">
-    <div class="entry-head"><span class="entry-num">4.</span> Gartner Leaders</div>
-    <p>The 2025 Gartner Magic Quadrant for Observability Platforms evaluated 20 vendors and named six Leaders. Dynatrace placed highest on Ability to Execute for the fifteenth consecutive year as a Leader. Datadog was named Leader for the fifth straight year. Grafana Labs appeared as a Leader for the first time, reflecting the mainstream enterprise adoption of the open-source stack. Elastic, IBM (Instana), and Splunk rounded out the Leaders quadrant.</p>
-    <p class="note">The inclusion of both Grafana Labs and IBM alongside traditional APM vendors signals that the definition of &ldquo;observability platform&rdquo; has broadened beyond application performance monitoring into infrastructure, security, and data operations.</p>
-    <p class="sources"><a href="https://www.gartner.com/en/documents/6688834">Gartner MQ 2025</a> &#183; <a href="https://investors.datadoghq.com/news-releases/news-release-details/datadog-named-leader-2025-gartnerr-magic-quadranttm">Datadog Announcement</a></p>
+  <div class="entry" id="cost-pressure">
+    <div class="entry-head"><span class="entry-num">4.</span> Cost Pressure</div>
+    <p>Observability cost has become a first-order concern. Datadog&rsquo;s multi-dimensional pricing model &ndash; per host for infrastructure, per GB for logs, per span for APM, per custom metric, per RUM session &ndash; creates billing complexity that compounds at scale. Reports of bills growing <a href="https://signoz.io/blog/datadog-pricing/">30&ndash;50% year-over-year</a> are common. Teams have reported optimizing their <span class="it">infrastructure architecture</span> to minimize Datadog host counts rather than for operational efficiency &ndash; a sign the billing model is distorting technical decisions.</p>
+    <p>This dynamic is a direct tailwind for three categories: <span class="term">telemetry pipelines</span> (Cribl, which claims 30&ndash;90% cost reduction by filtering data before it reaches backends), <span class="term">open-source backends</span> (Grafana Labs, whose LGTM stack removes licensing cost), and <span class="term">OTel-native startups</span> (Dash0, Groundcover, Coralogix) that position on transparent pricing. Datadog responded at DASH 2025 with <span class="term">Flex Logs</span>, a flexible storage tier for cost optimization (<a href="https://www.datadoghq.com/blog/dash-2025-new-feature-roundup-keynote/">DASH 2025</a>), acknowledging the pressure without changing the underlying model.</p>
+    <p class="note">Switching costs remain the moat: dashboards, monitors, and team knowledge built over years don&rsquo;t export cleanly. Most teams split workloads across vendors rather than fully migrating &ndash; keeping Datadog for APM while moving logs and metrics to cheaper alternatives.</p>
   </div>
 
   <!-- ——————————————————————————— -->
@@ -108,40 +142,37 @@
 
   <div class="entry" id="otel-project">
     <div class="entry-head"><span class="entry-num">5.</span> The OpenTelemetry Project</div>
-    <p>OpenTelemetry is the second-highest-velocity project in the Cloud Native Computing Foundation, behind only Kubernetes. Formed in 2019 from the merger of Google&rsquo;s OpenCensus and the CNCF&rsquo;s OpenTracing, OTel defines a vendor-neutral standard for generating, collecting, and transmitting telemetry data &ndash; traces, metrics, and logs.</p>
-    <p>The project reports contributions from over 10,000 individuals across 1,200 companies. Approximately 900 developers from 200 companies contribute monthly &ndash; an 18% year-over-year increase in developer participation and a 22% rise in company involvement. The top organizational contributors &ndash; Splunk, Microsoft, Lightstep (now ServiceNow), Google, and Dynatrace &ndash; account for roughly 60% of contributions. The remaining 40% comes from startups, individual contributors, and smaller vendors.</p>
-    <p class="sources"><a href="https://www.cncf.io/reports/opentelemetry-project-journey-report/">CNCF Project Journey Report</a> &#183; <a href="https://www.cncf.io/blog/2025/07/18/a-mid-year-2025-look-at-cncf-linux-foundation-and-the-top-30-open-source-projects/">CNCF Mid-Year 2025 Velocity</a></p>
+    <p>OpenTelemetry is the second-highest-velocity project in the Cloud Native Computing Foundation, behind only Kubernetes. Formed in 2019 from the merger of Google&rsquo;s OpenCensus and the CNCF&rsquo;s OpenTracing, OTel defines a vendor-neutral standard for generating, collecting, and transmitting telemetry data. The project <a href="https://www.cncf.io/reports/opentelemetry-project-journey-report/">reports</a> contributions from over 10,000 individuals across 1,200 companies. Approximately 900 developers from 200 companies contribute monthly &ndash; an 18% year-over-year increase in developer participation and a 22% rise in company involvement (<a href="https://www.cncf.io/blog/2025/07/18/a-mid-year-2025-look-at-cncf-linux-foundation-and-the-top-30-open-source-projects/">CNCF Mid-Year 2025</a>).</p>
+    <p>The top organizational contributors &ndash; Splunk, Microsoft, Lightstep (now ServiceNow), Google, and Dynatrace &ndash; account for roughly 60% of contributions. The remaining 40% comes from startups, individual contributors, and smaller vendors. OTel&rsquo;s governance is structured to prevent any single company from dominating: no company can hold a majority of Governance Committee seats, and the specification evolves through an open RFC process.</p>
   </div>
 
   <div class="entry" id="signal-maturity">
     <div class="entry-head"><span class="entry-num">6.</span> Signal Maturity</div>
-    <p>OTel organizes telemetry into signals, each at a different stage of maturity. The three core signals &ndash; traces, metrics, and logs &ndash; have reached stable or GA status across APIs, SDKs, and the OTLP wire protocol. Two newer signals are in earlier stages.</p>
+    <p>OTel organizes telemetry into signals, each at a different stage of maturity (<a href="https://opentelemetry.io/status/">status page</a>). The three core signals have reached stable/GA status. Two newer signals are in earlier stages.</p>
     <dl class="defs">
       <dt>Traces</dt>
       <dd>Stable. The most mature signal, with broad production adoption since 2021&ndash;2022.</dd>
       <dt>Metrics</dt>
       <dd>Stable. GA across major language SDKs (Java, .NET, Python, Go, JavaScript).</dd>
       <dt>Logs</dt>
-      <dd>Stable. The Logs Bridge API connects existing log frameworks (Log4j, SLF4J, Python logging) into the OTel ecosystem.</dd>
+      <dd>Stable. The Logs Bridge API connects existing log frameworks (Log4j, SLF4J, Python logging) into OTel.</dd>
       <dt>Profiling</dt>
-      <dd>Public Alpha (March 2026). Uses eBPF-based agents. Cross-signal correlation with traces via span IDs is in development. Based in part on technology donated by Elastic.</dd>
+      <dd>Public Alpha (March 2026). Uses eBPF-based agents. Cross-signal correlation with traces via span IDs in development. Based in part on technology <a href="https://opentelemetry.io/blog/2026/profiles-alpha/">donated by Elastic</a>.</dd>
       <dt>Events</dt>
-      <dd>Experimental. Structured, named log records with well-defined semantics, built as a layer on top of logs.</dd>
+      <dd>Experimental. Structured, named log records with well-defined semantics, built as a semantic layer on top of logs.</dd>
     </dl>
-    <p class="sources"><a href="https://opentelemetry.io/status/">OpenTelemetry Status</a> &#183; <a href="https://opentelemetry.io/blog/2026/profiles-alpha/">Profiles Alpha Announcement</a></p>
   </div>
 
   <div class="entry" id="enterprise-adoption">
     <div class="entry-head"><span class="entry-num">7.</span> Enterprise Adoption</div>
-    <p>An Enterprise Management Associates survey of 400 IT professionals measured OTel&rsquo;s penetration across enterprise organizations:</p>
+    <p>An <a href="https://www.enterprisemanagement.com/product/opentelemetry-challenges-priorities-adoption-patterns-and-solutions/">Enterprise Management Associates survey</a> of 400 IT professionals measured OTel&rsquo;s enterprise penetration:</p>
     <div class="ex">48%  currently using OpenTelemetry
 25%  planning to implement
 25%  evaluating
 61%+ rate OTel as &ldquo;very important&rdquo; or &ldquo;critical&rdquo;
 46%  of adopters report &gt;20% ROI
 40%  of adopters report 10&ndash;20% ROI</div>
-    <p>Complexity, cost, and resource constraints were cited as the primary barriers to broader adoption. These findings are consistent with a technology that has crossed the early-adopter phase but has not yet reached ubiquity &ndash; roughly half the market is in, and nearly all of the other half is looking at it.</p>
-    <p class="sources"><a href="https://www.enterprisemanagement.com/product/opentelemetry-challenges-priorities-adoption-patterns-and-solutions/">EMA, &ldquo;OpenTelemetry: Challenges, Priorities, Adoption Patterns&rdquo;</a></p>
+    <p>Complexity, cost, and resource constraints were cited as the primary barriers. These findings describe a technology that has crossed the early-adopter phase but has not yet reached ubiquity &ndash; roughly half the market is in, and nearly all of the other half is looking at it. The <a href="https://grafana.com/opentelemetry-report/">Grafana Labs OTel Report</a> found similar adoption patterns, with organizations using OTel reporting improved collaboration between development and operations teams as a secondary benefit.</p>
   </div>
 
   <!-- ——————————————————————————— -->
@@ -150,9 +181,9 @@
 
   <div class="entry" id="commoditization">
     <div class="entry-head"><span class="entry-num">8.</span> Collection Commoditization</div>
-    <p>OpenTelemetry&rsquo;s core structural effect is the <span class="term">commoditization of telemetry collection</span>. Before OTel, instrumenting an application with one vendor&rsquo;s agent meant telemetry was in that vendor&rsquo;s format, sent to that vendor&rsquo;s endpoints. Switching vendors meant re-instrumenting everything &ndash; a tax that functioned as lock-in.</p>
-    <p>With OTLP as a de facto wire-format standard, organizations instrument once and can route data to any compatible backend by changing an exporter configuration. The OTel Collector can fan data to multiple backends simultaneously, enabling parallel evaluations and gradual migrations. Switching costs drop from months of re-instrumentation to days of backend configuration.</p>
-    <p>This shifts vendor differentiation from <span class="it">how you collect data</span> to <span class="it">what you do with it</span>: analytics, AI-driven automation, query performance, visualization, and platform breadth. Vendors can no longer rely on instrumentation lock-in as a moat.</p>
+    <p>OpenTelemetry&rsquo;s core structural effect is the <span class="term">commoditization of telemetry collection</span>. Before OTel, instrumenting with one vendor&rsquo;s agent meant telemetry was in that vendor&rsquo;s format, sent to that vendor&rsquo;s endpoints. Switching required re-instrumenting everything &ndash; a tax that functioned as lock-in.</p>
+    <p>With OTLP as a de facto wire-format standard, organizations instrument once and route data to any compatible backend by changing an exporter configuration. The OTel Collector can fan data to multiple backends simultaneously, enabling parallel evaluations and gradual migrations. Switching costs drop from months to days.</p>
+    <p>This shifts differentiation from <span class="it">how you collect data</span> to <span class="it">what you do with it</span>: analytics, AI-driven automation, query performance, UX, and platform breadth. As <a href="https://thenewstack.io/opentelemetry-opens-the-door-for-observability-startups/">The New Stack notes</a>, OTel has lowered the barrier to entry for observability startups &ndash; they compete entirely on backend value because the collection layer is open.</p>
   </div>
 
   <div class="entry" id="vendor-positioning">
@@ -160,17 +191,16 @@
     <p>Each major vendor has adopted a distinct posture toward OTel, reflecting their architectural history and business model.</p>
     <dl class="defs">
       <dt>Datadog</dt>
-      <dd>Embrace and extend. Accepts OTLP via the Datadog Agent and a direct intake API. Launched the Datadog Distribution of the OTel Collector (DDOT) at DASH 2025. Supports OTel-native metrics in dashboards via a Semantic Mode that combines OTel and Datadog data. But the proprietary agent remains the recommended path &ndash; it is the upsell surface for network monitoring, security, profiling, and database monitoring. OTel threatens the agent&rsquo;s centrality.</dd>
+      <dd>Embrace and extend. Accepts OTLP via the Datadog Agent and a direct intake API. Launched the <a href="https://investors.datadoghq.com/news-releases/news-release-details/datadog-introduces-unified-opentelemetry-collector-and-agent">Datadog Distribution of the OTel Collector (DDOT)</a> at DASH 2025. Supports OTel-native metrics in dashboards via Semantic Mode. But the proprietary agent remains the recommended path &ndash; it is the upsell surface for NPM, security, profiling, and database monitoring. Features like Continuous Profiler code hotspots, Dynamic Instrumentation, and Data Streams Monitoring require dd-trace, not OTel SDKs.</dd>
       <dt>Dynatrace</dt>
-      <dd>Governance leader and hybrid model. Contributes to the OTel Technical Committee, specifications, and Collector. Ships a production-ready, security-patched OTel Collector distribution for free. Grail data lakehouse stores OTel data natively without lossy translation. DQL operates directly on OTel attributes. The OneAgent + OTel hybrid positions OTel as complementary to automatic instrumentation.</dd>
+      <dd>Governance leader and hybrid model. Contributes to the OTel Technical Committee, specifications, and Collector. Ships a <a href="https://cloudnativenow.com/features/dynatrace-reaches-the-summit-grail-powered-next%E2%80%91gen-observability-opentelemetry-and-the-autonomous-age/">production-ready OTel Collector distribution</a> for free. Grail data lakehouse stores OTel data natively without lossy translation. DQL operates directly on OTel attributes. OneAgent + OTel hybrid positions OTel as complementary to automatic instrumentation.</dd>
       <dt>Grafana Labs</dt>
-      <dd>Structurally aligned. The open-source backend stack &ndash; Tempo (traces), Mimir (metrics), Loki (logs), Pyroscope (profiling) &ndash; accepts OTLP natively. Grafana Alloy (formerly Grafana Agent) is built on the OTel Collector framework. As collection commoditizes, Grafana becomes the default open-source backend.</dd>
+      <dd>Structurally aligned. Backend stack &ndash; Tempo (traces), Mimir (metrics), Loki (logs), Pyroscope (profiling) &ndash; accepts OTLP natively. Grafana Alloy (formerly Grafana Agent) is built on the OTel Collector framework. As collection commoditizes, Grafana becomes the default open-source backend.</dd>
       <dt>Honeycomb</dt>
-      <dd>OTel-native from inception. Co-founded by OTel contributors. The strongest OTel-native query experience, but niche revenue (~$10.8M).</dd>
+      <dd>OTel-native from inception. Co-founded by <a href="https://www.honeycomb.io/blog/50-million-series-d-funding">OTel contributors</a>. Strongest OTel-native query experience, but niche revenue (~$10.8M).</dd>
       <dt>Splunk / Cisco</dt>
-      <dd>Deep OTel roots via the SignalFx acquisition (SignalFx founders co-created OTel). Splunk Observability Cloud is OTLP-native. Post-Cisco integration has created organizational uncertainty.</dd>
+      <dd>Deep OTel roots via SignalFx (whose founders co-created OTel). Splunk Observability Cloud is OTLP-native. Post-Cisco integration introduced <a href="https://investor.cisco.com/news/news-details/2025/Cisco-Supercharges-Observability-with-Agentic-AI-for-Real-Time-Business-Insights/default.aspx">agentic AI-powered observability</a> (September 2025).</dd>
     </dl>
-    <p class="sources"><a href="https://docs.datadoghq.com/opentelemetry/">Datadog OTel Docs</a> &#183; <a href="https://investors.datadoghq.com/news-releases/news-release-details/datadog-introduces-unified-opentelemetry-collector-and-agent">Datadog DDOT</a> &#183; <a href="https://www.dynatrace.com/news/blog/opentelemetry-trends-2025/">Dynatrace OTel</a> &#183; <a href="https://cloudnativenow.com/features/dynatrace-reaches-the-summit-grail-powered-next%E2%80%91gen-observability-opentelemetry-and-the-autonomous-age/">Cloud Native Now</a></p>
   </div>
 
   <div class="entry" id="cloud-providers">
@@ -178,59 +208,69 @@
     <p>All three major cloud providers now support OTLP ingestion natively, each with a different strategic calculus.</p>
     <dl class="defs">
       <dt>Google Cloud</dt>
-      <dd>Instrumental in creating OTel (via the OpenCensus/OpenTracing merger). Enabled native OTLP ingestion in Cloud Trace via the <span class="term">telemetry.googleapis.com</span> endpoint. Strategic interest: OTel reduces switching costs, helping Google compete for workloads that might otherwise be locked into AWS-specific tooling.</dd>
+      <dd>Instrumental in creating OTel (via OpenCensus/OpenTracing merger). Native OTLP ingestion in Cloud Trace via <span class="term">telemetry.googleapis.com</span>. Strategic interest: OTel reduces switching costs, helping Google compete against AWS lock-in. (<a href="https://www.infoq.com/news/2025/09/gcp-opentelemetry-adoption/">InfoQ</a>; <a href="https://cloud.google.com/blog/products/management-tools/opentelemetry-now-in-google-cloud-observability">Google Cloud Blog</a>)</dd>
       <dt>Microsoft Azure</dt>
-      <dd>Recommends the Azure Monitor OpenTelemetry Distro as the primary instrumentation path. Actively migrating customers from legacy Application Insights SDKs. Deep investment in .NET OTel SDK. Added AI agent monitoring to Application Insights with OTel collection from Microsoft Foundry, Copilot Studio, LangChain, and OpenAI Agents SDK.</dd>
+      <dd>Recommends the <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview">Azure Monitor OpenTelemetry Distro</a> as primary instrumentation path. Actively migrating from legacy Application Insights SDKs. Added AI agent monitoring via OTel from Foundry, Copilot Studio, LangChain, and OpenAI Agents SDK.</dd>
       <dt>AWS</dt>
-      <dd>Ships the AWS Distro for OpenTelemetry (ADOT). Built CloudWatch Application Signals &ndash; APM-like service maps, SLO monitoring, and correlated traces/metrics/logs &ndash; on top of OTel data. Strategy: &ldquo;good enough, deeply integrated, and included.&rdquo;</dd>
+      <dd>Ships ADOT (AWS Distro for OpenTelemetry). Built CloudWatch Application Signals &ndash; APM-like service maps and SLO monitoring &ndash; on OTel data. Strategy: &ldquo;good enough, deeply integrated, and included.&rdquo;</dd>
     </dl>
-    <p>For third-party vendors, this is a double-edged dynamic. It validates OTel as the standard and makes multi-cloud instrumentation practical &ndash; positive for platforms like Datadog that serve cross-cloud environments. But it enables &ldquo;good enough&rdquo; built-in observability that compresses the low end of the addressable market. The marketplace channel (Datadog is a top seller on AWS Marketplace, with purchases counting toward committed cloud spend) provides commercial cushion but also creates platform dependency.</p>
-    <p class="sources"><a href="https://www.infoq.com/news/2025/09/gcp-opentelemetry-adoption/">InfoQ</a> &#183; <a href="https://cloud.google.com/blog/products/management-tools/opentelemetry-now-in-google-cloud-observability">Google Cloud Blog</a> &#183; <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview">Azure Monitor Docs</a></p>
+    <p>For third-party vendors, this is double-edged. It validates OTel as the standard and makes multi-cloud practical &ndash; positive for Datadog. But it enables &ldquo;good enough&rdquo; built-in observability that compresses the low end of the market. The marketplace channel (Datadog is a top seller on AWS Marketplace, with purchases counting toward committed cloud spend) provides commercial cushion but also creates dependency.</p>
   </div>
 
   <div class="entry" id="beyond-apm">
     <div class="entry-head"><span class="entry-num">11.</span> OTel Beyond APM</div>
-    <p>OTel&rsquo;s expansion beyond application tracing creates new competitive vectors against entrenched infrastructure monitoring vendors.</p>
+    <p>OTel&rsquo;s expansion beyond application tracing into infrastructure, Kubernetes, and fleet management creates new competitive vectors.</p>
     <dl class="defs">
       <dt>Kubernetes</dt>
-      <dd>The OTel Operator manages Collectors and auto-instrumentation via Kubernetes-native CRDs. Supports DaemonSet, sidecar, and deployment patterns. Receivers for kubelet stats, cluster state, and k8s objects provide infrastructure telemetry without proprietary agents.</dd>
+      <dd>The <a href="https://github.com/open-telemetry/opentelemetry-operator">OTel Operator</a> manages Collectors and auto-instrumentation via CRDs. Receivers for kubelet stats, cluster state, and k8s objects provide infrastructure telemetry. Supports DaemonSet, sidecar, and deployment patterns. (<a href="https://opentelemetry.io/docs/platforms/kubernetes/">docs</a>)</dd>
       <dt>Infrastructure</dt>
-      <dd>The host metrics receiver collects CPU, memory, disk, and network. Integration breadth still lags proprietary agents (Datadog&rsquo;s 750+ integrations vs. ~100+ OTel receivers), but the gap narrows each release.</dd>
+      <dd>Host metrics receiver provides CPU, memory, disk, and network collection. Integration breadth lags proprietary agents (Datadog&rsquo;s 750+ integrations vs. ~100+ OTel receivers), but the gap narrows each release.</dd>
       <dt>Fleet Management</dt>
-      <dd>OpAMP (Open Agent Management Protocol) enables remote configuration, health monitoring, and updates for Collector fleets at scale. Nike presented an enterprise-scale OpAMP implementation at KubeCon North America 2025. Once mature, OpAMP makes OTel Collectors as operationally manageable as proprietary agents &ndash; removing a key barrier to enterprise adoption.</dd>
+      <dd><a href="https://opentelemetry.io/docs/specs/opamp/">OpAMP</a> (Open Agent Management Protocol) enables remote configuration, health monitoring, and updates for Collector fleets. Nike presented an enterprise-scale implementation at <a href="https://www.honeycomb.io/blog/opamp-explained-why-opentelemetry-needed-agent-management-protocol">KubeCon NA 2025</a>. Once mature, OpAMP makes Collectors as manageable as proprietary agents.</dd>
+      <dt>CI/CD</dt>
+      <dd>Semantic conventions for CI/CD pipelines (pipeline runs, task runs, VCS attributes) enable treating build systems as distributed traces. The Jenkins OTel Plugin and Gradle/Maven OTel plugins are production-ready. Emerging but meaningful for platform engineering teams.</dd>
     </dl>
-    <p class="sources"><a href="https://opentelemetry.io/docs/platforms/kubernetes/">OTel K8s Docs</a> &#183; <a href="https://github.com/open-telemetry/opentelemetry-operator">OTel Operator GitHub</a> &#183; <a href="https://opentelemetry.io/docs/specs/opamp/">OpAMP Spec</a> &#183; <a href="https://www.honeycomb.io/blog/opamp-explained-why-opentelemetry-needed-agent-management-protocol">Honeycomb on OpAMP</a></p>
   </div>
 
   <!-- ——————————————————————————— -->
   <div class="phase">Architectural Implications</div>
   <!-- ——————————————————————————— -->
 
+  <div class="entry" id="ebpf">
+    <div class="entry-head"><span class="entry-num">12.</span> eBPF and OTel Convergence</div>
+    <p>A significant development in 2025 was the convergence of eBPF-based instrumentation with OpenTelemetry. The <a href="https://opentelemetry.io/docs/zero-code/obi/">OTel eBPF Instrumentation project</a> (OBI) &ndash; originally Grafana Beyla, donated by Grafana Labs &ndash; provides zero-code, kernel-level auto-instrumentation for Linux HTTP/S and gRPC services. The <a href="https://opentelemetry.io/blog/2025/obi-announcing-first-release/">first alpha release</a> was a collaboration between Grafana Labs, Splunk, Coralogix, and Odigos.</p>
+    <p>OBI captures distributed traces and RED (Rate, Errors, Duration) metrics without any application code changes, operating at the kernel level via eBPF. Database instrumentation covers PostgreSQL, MySQL, MongoDB, Redis, and others. The OTel eBPF SIG was launched in May 2025 and is targeting a <a href="https://opentelemetry.io/blog/2026/obi-goals/">stable 1.0 release</a> with expanded protocol and language support.</p>
+    <p>This matters because it addresses the primary friction point of OTel adoption &ndash; manual instrumentation. If eBPF can deliver &ldquo;Dynatrace-like&rdquo; zero-code visibility through an open standard, the value proposition of proprietary agents narrows further. Grafana Labs articulated the architecture clearly: <a href="https://grafana.com/blog/why-opentelemetry-instrumentation-needs-both-ebpf-and-sdks/">eBPF for automatic baseline visibility, SDKs for application-specific depth</a>.</p>
+  </div>
+
   <div class="entry" id="data-model">
-    <div class="entry-head"><span class="entry-num">12.</span> Data Model Translation</div>
+    <div class="entry-head"><span class="entry-num">13.</span> Data Model Translation</div>
     <p>OTel uses a hierarchical attribute model with three layers: <span class="term">resource attributes</span> describing the entity (service, host, container), <span class="term">scope attributes</span> identifying the instrumentation library, and <span class="term">signal-level attributes</span> on individual spans, metrics, or logs. Attributes use dot-notation semantic conventions:</p>
     <div class="ex">http.request.method     service.name        k8s.pod.name
 http.response.status_code   deployment.environment.name   gen_ai.request.model</div>
-    <p>Vendors with flat tag models must collapse this hierarchy. Datadog&rsquo;s <span class="term">key:value</span> tags lose the resource/span distinction entirely &ndash; a <span class="term">service.name</span> resource attribute and an <span class="term">http.request.method</span> span attribute both become flat tags. Datadog maintains a documented semantic mapping layer for translation, but the mapping is lossy by design. Typed OTel attributes (int, double, bool, array) are coerced to strings. Resource identity &ndash; a first-class concept in OTel &ndash; does not exist in Datadog&rsquo;s data model.</p>
-    <p>Vendors with schema-on-read backends preserve the hierarchy natively. Dynatrace&rsquo;s Grail and Grafana&rsquo;s Tempo store OTel data without translation, making <span class="term">resource.</span> vs. <span class="term">span.</span> distinction queryable.</p>
-    <p class="sources"><a href="https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/">Datadog Semantic Mapping</a> &#183; <a href="https://docs.dynatrace.com/docs/discover-dynatrace/platform/grail/dynatrace-grail/architecture">Dynatrace Grail</a></p>
+    <p>Vendors with flat tag models must collapse this hierarchy. Datadog&rsquo;s key:value tags lose the resource/span distinction &ndash; everything becomes a flat tag. Datadog maintains a <a href="https://docs.datadoghq.com/opentelemetry/mapping/semantic_mapping/">semantic mapping layer</a>, but the mapping is lossy: typed OTel attributes (int, double, bool, array) are coerced to strings, and resource identity &ndash; a first-class OTel concept &ndash; has no Datadog equivalent.</p>
+    <p>A second friction point: OTel SDKs default to cumulative metric temporality in many configurations. Datadog&rsquo;s OTLP intake <a href="https://docs.datadoghq.com/opentelemetry/setup/otlp_ingest/metrics/">requires delta temporality</a>, forcing SDK or Collector-level conversion.</p>
+    <p>Vendors with schema-on-read backends preserve the hierarchy natively. <a href="https://docs.dynatrace.com/docs/discover-dynatrace/platform/grail/dynatrace-grail/architecture">Dynatrace&rsquo;s Grail</a> and Grafana&rsquo;s Tempo store OTel data without translation, making resource vs. span distinction queryable.</p>
   </div>
 
   <div class="entry" id="query-fragmentation">
-    <div class="entry-head"><span class="entry-num">13.</span> Query Fragmentation</div>
-    <p>There is no OTel-standard query language; OTel explicitly scopes itself to telemetry generation, collection, and transport. Each vendor has filled this gap differently, and the degree to which a vendor&rsquo;s query experience is <span class="it">OTel-native</span> is becoming a meaningful axis of differentiation.</p>
+    <div class="entry-head"><span class="entry-num">14.</span> Query Fragmentation</div>
+    <p>There is no OTel-standard query language; OTel explicitly scopes itself to generation, collection, and transport. Each vendor fills this gap differently, and OTel-native query capability is becoming a meaningful differentiator.</p>
     <dl class="defs">
       <dt>Datadog</dt>
-      <dd>Multiple syntaxes per signal: a DSL for metrics (<span class="term">avg:metric{tag:val} by {group}</span>), Lucene-style search for logs and traces (<span class="term">@attribute:value</span>), and the newer DDSQL (SQL dialect with tag support). A &ldquo;Semantic Mode&rdquo; can combine equivalent OTel and Datadog metrics automatically.</dd>
+      <dd>Multiple syntaxes: a DSL for metrics, Lucene-style for logs and traces, and <a href="https://docs.datadoghq.com/ddsql_editor/">DDSQL</a> (SQL dialect). <a href="https://docs.datadoghq.com/metrics/open_telemetry/query_metrics/">Semantic Mode</a> combines equivalent OTel and Datadog metrics. No structural trace queries. Facet declaration required for logs.</dd>
       <dt>Dynatrace</dt>
-      <dd>DQL (Dynatrace Query Language): a single pipe-based language across all signals. Operates directly on OTel attributes with no translation. <span class="term">fetch spans | filter http.response.status_code &gt;= 500</span></dd>
+      <dd>DQL: single pipe-based language across all signals. Operates natively on OTel attributes. No translation layer. Unified across logs, traces, metrics, events, and business data.</dd>
       <dt>Grafana</dt>
-      <dd>Signal-specific languages: PromQL (metrics), LogQL (logs), TraceQL (traces). TraceQL was designed expressly for OTel&rsquo;s span model &ndash; it supports <span class="term">resource.</span> vs. <span class="term">span.</span> distinction and structural parent/child queries.</dd>
-      <dt>Honeycomb</dt>
-      <dd>Visual query builder operating directly on raw events. Fully OTel-native, designed around OTel&rsquo;s wide-event attribute model.</dd>
+      <dd>Signal-specific: PromQL, LogQL, <a href="https://grafana.com/docs/tempo/latest/traceql/">TraceQL</a>. TraceQL was designed for OTel &ndash; supports resource. vs. span. distinction and structural parent/child queries.</dd>
     </dl>
-    <p class="note">An OTel-native query experience would support: dot-notation attributes as first-class citizens, typed values without facet declaration, resource/span separation, semantic convention version awareness, and structural trace queries. No vendor fully delivers all of these today, but Dynatrace (DQL) and Grafana (TraceQL) are closest.</p>
-    <p class="sources"><a href="https://docs.datadoghq.com/metrics/open_telemetry/query_metrics/">Datadog OTel Metrics Querying</a> &#183; <a href="https://docs.datadoghq.com/ddsql_editor/">DDSQL</a> &#183; <a href="https://grafana.com/docs/tempo/latest/traceql/">Grafana TraceQL</a></p>
+    <p class="note">An OTel-native query experience would support: dot-notation attributes as first-class citizens, typed values without facet declaration, resource/span separation, semantic convention version awareness, and structural trace queries. No vendor fully delivers all of these. Dynatrace (DQL) and Grafana (TraceQL) are closest.</p>
+  </div>
+
+  <div class="entry" id="security">
+    <div class="entry-head"><span class="entry-num">15.</span> Security Convergence</div>
+    <p>The boundary between security and observability is blurring. OTel can bridge the gap by sending enriched traces and logs to SIEM platforms alongside observability backends, giving security analysts application context &ndash; which user performed an action, what service handled it, the duration and outcome &ndash; without leaving their tools. As <a href="https://www.elastic.co/blog/2026-observability-trends-generative-ai-opentelemetry">Elastic notes</a>, observability pipelines increasingly facilitate runtime detection, anomaly detection for lateral movement, container integrity signals, and network policy telemetry.</p>
+    <p>Datadog has leaned into this with Cloud SIEM, Application Security Management, and Cloud Security Management &ndash; all flowing through the Datadog Agent. Elastic positions across both observability and security natively. Splunk&rsquo;s value to Cisco was largely the SIEM + observability convergence. This trend makes the OTel Collector strategically important for security teams as well &ndash; a single collection pipeline for both operational and security telemetry.</p>
   </div>
 
   <!-- ——————————————————————————— -->
@@ -238,51 +278,63 @@ http.response.status_code   deployment.environment.name   gen_ai.request.model</
   <!-- ——————————————————————————— -->
 
   <div class="entry" id="genai-conventions">
-    <div class="entry-head"><span class="entry-num">14.</span> OTel GenAI Conventions</div>
-    <p>OpenTelemetry has published semantic conventions for generative AI systems, covering model spans, agent spans, events, and metrics. Technology-specific conventions exist for Anthropic, OpenAI, Azure AI Inference, and AWS Bedrock.</p>
+    <div class="entry-head"><span class="entry-num">16.</span> OTel GenAI Conventions</div>
+    <p>OpenTelemetry has published <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">semantic conventions for generative AI systems</a>, covering model spans, agent spans, events, and metrics. Technology-specific conventions exist for Anthropic, OpenAI, Azure AI Inference, and AWS Bedrock.</p>
     <div class="ex">gen_ai.request.model          gen_ai.usage.input_tokens
 gen_ai.usage.output_tokens    gen_ai.response.finish_reasons
 gen_ai.operation.name         gen_ai.system</div>
-    <p>Work on agent framework conventions &ndash; covering CrewAI, AutoGen, LangGraph, IBM Bee Stack, and others &ndash; is ongoing. The community is defining a standardized approach for tracing multi-step tool use, retrieval-augmented generation, and multi-agent orchestration. Datadog natively supports OTel GenAI Semantic Conventions (v1.37+), automatically mapping GenAI attributes to its LLM Observability schema.</p>
-    <p>If these conventions achieve the same adoption trajectory as OTel&rsquo;s HTTP or database conventions, they will standardize AI workload telemetry across providers and frameworks &ndash; repeating the pattern that transformed APM from a proprietary-instrumentation market to an open-standards one.</p>
-    <p class="sources"><a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">OTel GenAI Semantic Conventions</a> &#183; <a href="https://opentelemetry.io/blog/2025/ai-agent-observability/">OTel AI Agent Observability</a> &#183; <a href="https://www.datadoghq.com/blog/llm-otel-semantic-convention/">Datadog OTel GenAI</a></p>
+    <p>Work on <a href="https://opentelemetry.io/blog/2025/ai-agent-observability/">agent framework conventions</a> &ndash; covering CrewAI, AutoGen, LangGraph, IBM Bee Stack, and others &ndash; is ongoing. The community is defining a standardized approach for tracing multi-step tool use, RAG, and multi-agent orchestration. Datadog <a href="https://www.datadoghq.com/blog/llm-otel-semantic-convention/">natively supports</a> OTel GenAI Semantic Conventions (v1.37+), auto-mapping attributes to its LLM Observability schema.</p>
+    <p>If these conventions achieve the same adoption trajectory as OTel&rsquo;s HTTP or database conventions, they will standardize AI workload telemetry across providers &ndash; repeating the pattern that transformed APM from a proprietary-instrumentation market to an open-standards one.</p>
   </div>
 
   <div class="entry" id="ai-for-observability">
-    <div class="entry-head"><span class="entry-num">15.</span> AI for Observability</div>
-    <p>Every major vendor now ships AI-assisted features for anomaly detection, root cause analysis, natural language querying, and automated remediation. The 2025 Gartner MQ noted AI capabilities as a significant evaluation criterion. Two distinct architectural approaches have emerged.</p>
+    <div class="entry-head"><span class="entry-num">17.</span> AI for Observability</div>
+    <p>Every major vendor now ships AI-assisted features. Two distinct architectural approaches have emerged &ndash; one topology-aware, one correlation-based.</p>
     <dl class="defs">
       <dt>Datadog</dt>
-      <dd>Bits AI suite (2025): SRE Agent (autonomous incident troubleshooting), Dev Agent (development-time assistance), Security Analyst. LLM-driven, correlation-based. In 2026, launched an MCP Server enabling coding agents (Claude Code, Cursor, Codex) to access Datadog telemetry.</dd>
+      <dd><a href="https://www.datadoghq.com/product/ai/bits-ai-sre/">Bits AI</a> suite (2025): SRE Agent (autonomous troubleshooting), Dev Agent, Security Analyst. LLM-driven, correlation-based. In 2026, launched an MCP Server enabling coding agents (Claude Code, Cursor, Codex) to access telemetry during development. (<a href="https://www.datadoghq.com/blog/dash-2025-new-feature-roundup-keynote/">DASH 2025</a>)</dd>
       <dt>Dynatrace</dt>
-      <dd>Davis AI: causal, topology-aware reasoning. Uses the Smartscape dependency graph for root cause analysis rather than pure correlation. Longer track record in production AI for observability.</dd>
+      <dd>Davis AI: causal, topology-aware reasoning using the Smartscape dependency graph. Longer track record in production AI &ndash; 15 years of the Davis engine precede the current LLM wave.</dd>
       <dt>Cisco / Splunk</dt>
-      <dd>Announced agentic AI-powered Splunk Observability in September 2025. AI agents deployed across the full incident response lifecycle.</dd>
+      <dd>Agentic AI-powered Splunk Observability (<a href="https://investor.cisco.com/news/news-details/2025/Cisco-Supercharges-Observability-with-Agentic-AI-for-Real-Time-Business-Insights/default.aspx">September 2025</a>). AI agents across the full incident response lifecycle.</dd>
       <dt>Microsoft</dt>
-      <dd>Added AI agent monitoring to Application Insights with OTel-collected telemetry from Foundry, Copilot Studio, LangChain, and OpenAI Agents SDK.</dd>
+      <dd>AI agent monitoring in Application Insights, with OTel-collected telemetry from Foundry, Copilot Studio, LangChain, and OpenAI Agents SDK. (<a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview">docs</a>)</dd>
     </dl>
-    <p class="sources"><a href="https://www.datadoghq.com/product/ai/bits-ai-sre/">Bits AI SRE</a> &#183; <a href="https://www.datadoghq.com/about/latest-news/press-releases/datadog-expands-llm-observability-with-new-capabilities-to-monitor-agentic-ai-accelerate-development-and-improve-model-performance/">Datadog Agentic AI</a> &#183; <a href="https://investor.cisco.com/news/news-details/2025/Cisco-Supercharges-Observability-with-Agentic-AI-for-Real-Time-Business-Insights/default.aspx">Cisco IR</a></p>
   </div>
 
   <div class="entry" id="observability-for-ai">
-    <div class="entry-head"><span class="entry-num">16.</span> Observability for AI</div>
-    <p>The inverse of AI for observability: monitoring AI/ML workloads themselves. This encompasses LLM inference latency, token costs, hallucination rates, GPU utilization, model drift, and AI agent execution traces. This is the category driving the highest growth rates in the observability market.</p>
-    <p>Datadog&rsquo;s LLM Observability product (GA) provides end-to-end tracing across AI agents with visibility into inputs, outputs, latency, token usage, and errors. The June 2025 expansion added agentic AI monitoring, LLM Experiments, and an AI Agents Console. A Q4 2025 eight-figure deal with &ldquo;a leading AI model company&rdquo; signals that AI infrastructure operators are emerging as a material revenue segment.</p>
-    <p>OTel&rsquo;s GenAI conventions position it as the neutral instrumentation layer for these workloads. As AI agent architectures grow more complex, the need for standardized tracing across heterogeneous frameworks strengthens the case for OTel as the common telemetry layer.</p>
-    <p class="sources"><a href="https://www.datadoghq.com/product/ai/llm-observability/">Datadog LLM Observability</a> &#183; <a href="https://www.fool.com/earnings/call-transcripts/2026/02/10/datadog-ddog-q4-2025-earnings-call-transcript/">Datadog Q4 2025 Earnings Call</a></p>
+    <div class="entry-head"><span class="entry-num">18.</span> Observability for AI</div>
+    <p>The inverse: monitoring AI/ML workloads themselves. LLM inference latency, token costs, hallucination rates, GPU utilization, model drift, and AI agent execution traces. This is the category driving the highest growth rates in observability.</p>
+    <p>Datadog&rsquo;s <a href="https://www.datadoghq.com/product/ai/llm-observability/">LLM Observability</a> provides end-to-end tracing across AI agents. The <a href="https://www.datadoghq.com/about/latest-news/press-releases/datadog-expands-llm-observability-with-new-capabilities-to-monitor-agentic-ai-accelerate-development-and-improve-model-performance/">June 2025 expansion</a> added agentic AI monitoring, LLM Experiments, and an AI Agents Console. A Q4 2025 eight-figure deal with &ldquo;a leading AI model company&rdquo; (<a href="https://www.fool.com/earnings/call-transcripts/2026/02/10/datadog-ddog-q4-2025-earnings-call-transcript/">earnings call</a>) signals that AI infrastructure operators are emerging as a material revenue segment.</p>
+    <p>Coralogix acquired Aporia (AI observability and guardrails platform) in January 2025 and launched the Coralogix AI Center three months later (<a href="https://coralogix.com/blog/coralogix-raises-115m-series-e-to-fuel-ai-powered-observability/">blog</a>). The pattern is clear: traditional observability vendors are buying AI monitoring capabilities rather than building them organically.</p>
   </div>
 
   <div class="entry" id="ai-market">
-    <div class="entry-head"><span class="entry-num">17.</span> AI Observability Market</div>
-    <p>The AI observability sub-market is the fastest-growing segment within the broader observability landscape, with growth rates two to three times the overall market.</p>
+    <div class="entry-head"><span class="entry-num">19.</span> AI Observability Market</div>
+    <p>The AI observability sub-market is the fastest-growing segment in observability, with growth rates two to three times the overall market.</p>
+
+    <svg class="chart" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- CAGR comparison -->
+      <text x="0" y="12" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#999" font-style="italic">CAGR comparison</text>
+      <text x="0" y="38" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a">Observability (overall)</text>
+      <rect x="160" y="28" width="48" height="14" fill="#e8e4df" rx="1"/>
+      <text x="214" y="39" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">12%</text>
+      <text x="0" y="60" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a">AI in observability</text>
+      <rect x="160" y="50" width="90" height="14" fill="#d9d4cc" rx="1"/>
+      <text x="256" y="61" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">22.5%</text>
+      <text x="0" y="82" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a">LLM observability</text>
+      <rect x="160" y="72" width="145" height="14" fill="#ccc6bc" rx="1"/>
+      <text x="311" y="83" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">36.3%</text>
+      <text x="200" y="108" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#aaa" font-style="italic" text-anchor="middle">Sources: Gartner, Technavio, The Business Research Company</text>
+    </svg>
+
     <dl class="defs defs-wide">
       <dt>LLM Observability</dt>
-      <dd>$1.97B (2025) &rarr; $6.80B (2029), 36.3% CAGR. &ndash; The Business Research Company</dd>
+      <dd>$1.97B (2025) &rarr; $6.80B (2029), 36.3% CAGR. (<a href="https://www.thebusinessresearchcompany.com/report/large-language-model-llm-observability-platform-global-market-report">The Business Research Company</a>)</dd>
       <dt>AI in Observability</dt>
-      <dd>Growing by $2.9B between 2025&ndash;2029, 22.5% CAGR. Broader scope including AIOps. &ndash; Technavio</dd>
+      <dd>Growing by $2.9B between 2025&ndash;2029, 22.5% CAGR. Broader scope including AIOps. (<a href="https://www.technavio.com/report/ai-in-observability-market-industry-analysis">Technavio</a>)</dd>
     </dl>
-    <p>These figures are driven by two forces: every enterprise deploying AI needs to monitor it, and the AI workloads themselves generate novel telemetry requirements (token economics, prompt/response quality, agent decision traces) that existing observability platforms were not designed to handle.</p>
-    <p class="sources"><a href="https://www.thebusinessresearchcompany.com/report/large-language-model-llm-observability-platform-global-market-report">The Business Research Company</a> &#183; <a href="https://www.technavio.com/report/ai-in-observability-market-industry-analysis">Technavio</a></p>
+    <p>These figures are driven by two forces: every enterprise deploying AI needs to monitor it, and AI workloads generate novel telemetry requirements (token economics, prompt/response quality, agent decision traces) that existing platforms were not designed to handle.</p>
   </div>
 
   <!-- ——————————————————————————— -->
@@ -290,92 +342,170 @@ gen_ai.operation.name         gen_ai.system</div>
   <!-- ——————————————————————————— -->
 
   <div class="entry" id="recent-acquisitions">
-    <div class="entry-head"><span class="entry-num">18.</span> Recent Acquisitions</div>
-    <p>Three acquisitions in the six months preceding this report indicate sustained buyer appetite and reveal which capabilities acquirers are prioritizing.</p>
+    <div class="entry-head"><span class="entry-num">20.</span> Recent Acquisitions</div>
+    <p>Four acquisitions in the six months preceding this report indicate sustained buyer appetite and reveal which capabilities acquirers are prioritizing.</p>
     <dl class="defs">
       <dt>Observe</dt>
-      <dd>Snowflake announced intent to acquire for ~$1B (January 2026). Observe builds observability on Snowflake&rsquo;s data cloud. The deal &ndash; Snowflake&rsquo;s largest &ndash; signals that data platform companies see observability as a natural extension of their storage and analytics layer.</dd>
+      <dd>Snowflake, ~$1B (January 2026). Snowflake&rsquo;s largest acquisition. Signals data platform companies see observability as a natural extension. (<a href="https://techcrunch.com/2026/01/08/snowflake-announces-its-intent-to-buy-observability-platform-observe/">TechCrunch</a>)</dd>
       <dt>Langfuse</dt>
-      <dd>Acquired by ClickHouse (January 2026). Open-source LLM tracing and evaluation platform (YC W23, MIT-licensed). Tens of thousands of developers. OTel-integrated. Signals that database infrastructure companies are buying AI observability capabilities.</dd>
+      <dd>ClickHouse (January 2026). Open-source LLM tracing platform (YC W23, MIT-licensed). OTel-integrated. Database companies are buying AI observability capabilities. (<a href="https://github.com/langfuse/langfuse">GitHub</a>)</dd>
       <dt>Lumigo</dt>
-      <dd>Acquired by Dash0 (February 2026). Serverless and AWS-native observability platform. Brought Lambda expertise and LLM observability capabilities into Dash0&rsquo;s OTel-native stack.</dd>
+      <dd>Dash0 (February 2026). Serverless/AWS-native observability. Brought Lambda and LLM observability into Dash0&rsquo;s OTel stack. (<a href="https://www.dash0.com/blog/dash0-raises-usd110m-series-b">Dash0</a>)</dd>
+      <dt>Aporia</dt>
+      <dd>Coralogix (January 2025). AI observability and guardrails. Led to the launch of Coralogix AI Center three months later. (<a href="https://coralogix.com/blog/coralogix-raises-115m-series-e-to-fuel-ai-powered-observability/">Coralogix</a>)</dd>
     </dl>
-    <p class="sources"><a href="https://techcrunch.com/2026/01/08/snowflake-announces-its-intent-to-buy-observability-platform-observe/">TechCrunch</a> &#183; <a href="https://siliconangle.com/2025/12/24/snowflake-reportedly-seeking-acquire-observability-startup-observe-1b/">SiliconANGLE</a> &#183; <a href="https://www.dash0.com/blog/dash0-raises-usd110m-series-b">Dash0</a></p>
   </div>
 
   <div class="entry" id="otel-native-startups">
-    <div class="entry-head"><span class="entry-num">19.</span> OTel-Native Startups</div>
-    <p>A cohort of startups has been built from the ground up on OpenTelemetry, with no proprietary agent or instrumentation format. Their existence is a direct consequence of OTel&rsquo;s commoditization of the collection layer &ndash; they compete entirely on backend value.</p>
+    <div class="entry-head"><span class="entry-num">21.</span> OTel-Native Startups</div>
+    <p>A cohort of startups built from the ground up on OpenTelemetry, with no proprietary agent or format. Their existence is a direct consequence of collection commoditization.</p>
     <dl class="defs">
       <dt>Dash0</dt>
-      <dd>$1B valuation, $155M total funding (Series B $110M, March 2026, Balderton). Founded 2023 by the team behind Instana (acquired by IBM, 2020). 600+ paying customers including Zalando and Taco Bell, more than doubling in five months between rounds. Acquired Lumigo. The fastest-growing company on this list relative to age. Direct threat on cost and OTel alignment.</dd>
+      <dd>$1B valuation, $155M total (Series B $110M, March 2026, <a href="https://thenextweb.com/news/dash0-110m-series-b-observability-unicorn">Balderton</a>). Founded 2023 by the <a href="https://www.accel.com/noteworthies/simplifying-observability-for-developers-everywhere-our-investment-in-dash0">ex-Instana team</a> (Mirko Novakovic). 600+ paying customers including Zalando and Taco Bell. Doubled customer count in five months between rounds. Acquired Lumigo. Fastest-growing company on this list relative to age.</dd>
+      <dt>Coralogix</dt>
+      <dd>$1B+ valuation, $115M Series E (June 2025, <a href="https://techcrunch.com/2025/06/17/observability-startup-coralogix-becomes-a-unicorn-eyes-india-expansion/">TechCrunch</a>). 4,000+ customers. Acquired Aporia for AI observability. Launched agentic AI assistant &ldquo;Olly.&rdquo; OTel-compatible with strong Kubernetes support. Targets enterprises wanting unified observability + security with AI-powered analysis.</dd>
       <dt>Chronosphere</dt>
-      <dd>~$1.6B valuation (2023), $343M total funding (Series C $200M, General Atlantic). Founded by ex-Uber engineers who built M3DB. Focused on cloud-native metrics with OTel compatibility. Differentiated on cost control &ndash; retains 100% of trace data without sampling. Slower recent news cadence raises questions about growth trajectory; high valuation may be stale.</dd>
+      <dd>~$1.6B valuation (2023), $343M total (Series C $200M, <a href="https://chronosphere.io/news/chronosphere-adds-breakthrough-distributed-tracing-capabilities-to-observability-platform-raises-200-million-in-funding/">General Atlantic</a>). Ex-Uber engineers who built M3DB. Cost control differentiator &ndash; 100% trace retention without sampling. Slower recent news raises questions about growth trajectory; valuation may be stale.</dd>
       <dt>Honeycomb</dt>
-      <dd>~$150M total funding (Series D $50M, 2023, Headline). Co-founded by Charity Majors (ex-Facebook infra). Pioneered the &ldquo;observability vs. monitoring&rdquo; distinction. OTel-native from inception. 160%+ NRR but only ~$10.8M revenue (October 2024). The revenue-to-funding gap makes a standalone path difficult. More likely an acquisition target than an independent growth story.</dd>
+      <dd>~$150M total (Series D $50M, 2023, <a href="https://www.prnewswire.com/news-releases/observability-market-creator-honeycomb-nabs-50m-in-rare-series-d-funding-as-economy-fuels-its-growth-301791720.html">Headline</a>). Pioneered &ldquo;observability vs. monitoring.&rdquo; 160%+ NRR but ~$10.8M revenue. Revenue-to-funding gap makes standalone path difficult. More likely an acquisition target.</dd>
       <dt>SigNoz</dt>
-      <dd>~$6.5M total funding. Open-source, OTel-native, self-hosted (logs, traces, metrics). Built on ClickHouse. Small team and funding. Potential acquisition target for ClickHouse ecosystem expansion (similar to the Langfuse pattern) or any vendor wanting an open-source OTel-native frontend.</dd>
+      <dd>~$6.5M total (<a href="https://techcrunch.com/2023/09/28/open-source-datadog-rival-signoz-lands-on-the-cloud-with-6-5m-investment/">TechCrunch</a>). Open-source OTel-native on ClickHouse. Direct Datadog alternative. Small and acquirable &ndash; Langfuse/ClickHouse pattern.</dd>
     </dl>
-    <p class="sources"><a href="https://thenextweb.com/news/dash0-110m-series-b-observability-unicorn">The Next Web</a> &#183; <a href="https://www.accel.com/noteworthies/simplifying-observability-for-developers-everywhere-our-investment-in-dash0">Accel</a> &#183; <a href="https://chronosphere.io/news/chronosphere-adds-breakthrough-distributed-tracing-capabilities-to-observability-platform-raises-200-million-in-funding/">Chronosphere</a> &#183; <a href="https://www.honeycomb.io/blog/50-million-series-d-funding">Honeycomb</a> &#183; <a href="https://techcrunch.com/2023/09/28/open-source-datadog-rival-signoz-lands-on-the-cloud-with-6-5m-investment/">TechCrunch</a></p>
   </div>
 
   <div class="entry" id="k8s-infra">
-    <div class="entry-head"><span class="entry-num">20.</span> Kubernetes &amp; Infrastructure</div>
-    <p>Two startups target the infrastructure and Kubernetes observability layer specifically, each with a differentiated technical approach.</p>
+    <div class="entry-head"><span class="entry-num">22.</span> Kubernetes &amp; Infrastructure</div>
     <dl class="defs">
       <dt>Groundcover</dt>
-      <dd>$60M total funding (Series B $35M, April 2025, Zeev Ventures). eBPF-based, purpose-built for Kubernetes. Unique &ldquo;bring your own cloud&rdquo; model &ndash; telemetry stays in the customer&rsquo;s infrastructure, addressing data sovereignty and cost concerns simultaneously. Claims 500%+ ARR growth and several Fortune 100 customers. Zero-instrumentation via eBPF parallels Dynatrace&rsquo;s auto-instrumentation philosophy but for cloud-native environments.</dd>
+      <dd>$60M total (Series B $35M, April 2025, <a href="https://siliconangle.com/2025/04/10/observability-startup-groundcover-bags-35m-new-funding-take-datadog/">SiliconANGLE</a>). eBPF-based, K8s-purpose-built. &ldquo;Bring your own cloud&rdquo; model &ndash; telemetry stays in customer infra. 500%+ ARR growth. Fortune 100 customers. Zero-instrumentation via eBPF. (<a href="https://www.networkworld.com/article/3960548/groundcover-grows-funding-for-ebpf-based-observability-tech.html">Network World</a>)</dd>
+      <dt>Odigos</dt>
+      <dd>$13M raised (led by Venture Guides, angels from Chronosphere, Honeycomb, and Lightstep founders). eBPF + OTel auto-instrumentation. Key contributor to the <a href="https://opentelemetry.io/docs/zero-code/obi/">OTel eBPF Instrumentation SIG</a>. Targets the &ldquo;zero-code distributed tracing&rdquo; use case. (<a href="https://ustechtimes.com/odigos-raises-13m-to-expand-its-ebpf-based-observability-platform/">US Tech Times</a>)</dd>
+      <dt>Metoro</dt>
+      <dd>YC-backed, $500K seed. K8s-native AI SRE. Three-person team generating <a href="https://getlatka.com/companies/metoro.io#funding">$330K revenue</a> (September 2025). Combines telemetry with AI-assisted troubleshooting specifically for Kubernetes. Early but capital-efficient.</dd>
       <dt>Bindplane</dt>
-      <dd>Undisclosed funding, deepening Google Cloud partnership. OTel-native telemetry pipeline built around the OpenTelemetry Collector. Key contributor to OpAMP &ndash; the emerging standard for fleet management of Collectors. Niche but strategically positioned at the Collector management layer, which becomes critical as OTel deployments scale. Acquisition appeal lies in scarce OpAMP expertise.</dd>
+      <dd>Undisclosed funding, <a href="https://bindplane.com/">deepening Google partnership</a>. OTel-native telemetry pipeline. Key <a href="https://bindplane.com/blog/from-kubecon-eu-to-kubecon-na-bindplane-s-opentelemetry-contributions-and-highlights-mar-oct-2025">contributor to OpAMP</a>. Niche but strategically positioned at the Collector management layer.</dd>
     </dl>
-    <p class="sources"><a href="https://siliconangle.com/2025/04/10/observability-startup-groundcover-bags-35m-new-funding-take-datadog/">SiliconANGLE</a> &#183; <a href="https://www.networkworld.com/article/3960548/groundcover-grows-funding-for-ebpf-based-observability-tech.html">Network World</a> &#183; <a href="https://bindplane.com/">Bindplane</a></p>
   </div>
 
   <div class="entry" id="pipelines">
-    <div class="entry-head"><span class="entry-num">21.</span> Telemetry Pipelines</div>
-    <p><span class="term">Cribl</span> is the dominant independent telemetry pipeline company, positioned at the strategic chokepoint between data producers and observability backends.</p>
-    <p>Cribl Stream routes, filters, and transforms observability data between sources and destinations. The value proposition: enterprises reduce Splunk and Datadog spend by 30&ndash;90% by processing data before it reaches the backend. Cribl closed a $319M Series E led by GV (Google Ventures) in August 2024 at a $3.5B valuation. ARR reached $200M as of January 2025 &ndash; the fourth-fastest infrastructure company to reach $100M ARR.</p>
-    <p>At this scale, Cribl is more likely an IPO candidate than an acquisition target. The strategic significance of the pipeline layer &ndash; controlling data flow, reducing costs, enabling multi-vendor strategies &ndash; makes it a company that Datadog and Splunk compete against rather than one they would acquire.</p>
-    <p class="sources"><a href="https://news.crunchbase.com/venture/data-infrastructure-startup-cribl-gv-investment/">Crunchbase News</a> &#183; <a href="https://www.techtarget.com/searchdatamanagement/news/366609255/Cribl-positions-for-IPO-with-319M-in-latest-funding-round">TechTarget</a> &#183; <a href="https://cribl.io/news/cribl-announces-319m-series-e/">Cribl</a></p>
+    <div class="entry-head"><span class="entry-num">23.</span> Telemetry Pipelines</div>
+    <p><span class="term">Cribl</span> is the dominant independent telemetry pipeline, positioned at the strategic chokepoint between data producers and observability backends. Cribl Stream routes, filters, and transforms data before it reaches the backend, enabling 30&ndash;90% cost reduction. $319M Series E (August 2024, GV) at $3.5B valuation. $200M ARR as of January 2025. (<a href="https://news.crunchbase.com/venture/data-infrastructure-startup-cribl-gv-investment/">Crunchbase News</a>; <a href="https://www.techtarget.com/searchdatamanagement/news/366609255/Cribl-positions-for-IPO-with-319M-in-latest-funding-round">TechTarget</a>)</p>
+    <p>At this scale, Cribl is an IPO candidate rather than an acquisition target. The pipeline layer&rsquo;s strategic significance &ndash; controlling data flow, reducing costs, enabling multi-vendor strategies &ndash; makes it a company that Datadog competes against rather than acquires.</p>
   </div>
 
   <div class="entry" id="ai-startups">
-    <div class="entry-head"><span class="entry-num">22.</span> AI Observability Startups</div>
-    <p>Pure-play AI observability companies are drawing disproportionate capital relative to their current revenue, reflecting a bet on the 36% CAGR forecast for LLM observability.</p>
+    <div class="entry-head"><span class="entry-num">24.</span> AI Observability Startups</div>
+    <p>Pure-play AI observability companies are drawing disproportionate capital relative to current revenue, reflecting a bet on the 36% CAGR forecast.</p>
     <dl class="defs">
       <dt>Arize AI</dt>
-      <dd>$131M total funding (Series C $70M, February 2025, Adams Street Partners). Unified AI observability and LLM evaluation platform. Customers include Uber, Booking.com, Duolingo, PepsiCo, and Wayfair. <span class="term">Notable: Datadog is a strategic investor</span> &ndash; potentially signaling future acquisition interest or at minimum a partnership hedge. The largest pure-play AI observability investment at the time of announcement.</dd>
+      <dd>$131M total (Series C $70M, February 2025, <a href="https://www.prnewswire.com/news-releases/arize-ai-secures-70m-series-c-to-fix-ais-biggest-problem-making-llms-and-ai-agents-work-in-the-real-world-302381601.html">Adams Street</a>). Customers: Uber, Booking.com, Duolingo, PepsiCo, Wayfair. <span class="term">Datadog is a strategic investor</span> &ndash; signaling acquisition interest or partnership hedge. Largest pure-play AI observability round at announcement.</dd>
       <dt>Braintrust</dt>
-      <dd>$800M valuation, $80M Series B (February 2026, Iconiq with a16z and Greylock). Positions itself as &ldquo;the observability layer for AI.&rdquo; Focused on AI evaluation, testing, and monitoring. Rapid valuation growth suggests strong demand for AI-specific tooling independent of traditional APM vendors.</dd>
+      <dd>$800M valuation, $80M Series B (February 2026, <a href="https://siliconangle.com/2026/02/17/braintrust-lands-80m-series-b-funding-round-become-observability-layer-ai/">Iconiq with a16z and Greylock</a>). &ldquo;The observability layer for AI.&rdquo; Evaluation, testing, and monitoring. Rapid valuation growth suggests strong demand for AI-specific tooling independent of APM vendors.</dd>
     </dl>
-    <p class="sources"><a href="https://arize.com/blog/arize-ai-raises-70m-series-c-to-build-the-gold-standard-for-ai-evaluation-observability/">Arize AI</a> &#183; <a href="https://www.prnewswire.com/news-releases/arize-ai-secures-70m-series-c-to-fix-ais-biggest-problem-making-llms-and-ai-agents-work-in-the-real-world-302381601.html">PR Newswire</a> &#183; <a href="https://siliconangle.com/2026/02/17/braintrust-lands-80m-series-b-funding-round-become-observability-layer-ai/">SiliconANGLE</a></p>
+  </div>
+
+  <div class="entry" id="early-stage">
+    <div class="entry-head"><span class="entry-num">25.</span> Early Stage &amp; Long Tail</div>
+    <p>Below the growth-stage companies, a long tail of seed and pre-seed startups reflects where the next wave of innovation and acquisition targets is forming.</p>
+    <dl class="defs">
+      <dt>Laminar</dt>
+      <dd>YC S24, $3M seed (March 2026, <a href="https://tech.eu/2026/03/17/agent-debugging-startup-laminar-raises-3m-seed-to-tackle-the-observability-gap-in-ai-agents/">Atlantic.vc</a>). Open-source AI agent debugging with browser session replay synced to traces. Customers include Browser Use and OpenHands. Notable angel: Ben Sigelman (OTel co-creator). Purpose-built for AI agents that run for hours and generate thousands of spans.</dd>
+      <dt>Helicone</dt>
+      <dd>YC W23, $500K. Open-source LLM gateway and observability. Processed <a href="https://www.helicone.ai/">2B+ LLM interactions</a>. Rust-based distributed architecture (Cloudflare Workers, ClickHouse, Kafka). Functions as both an AI gateway (routing, fallbacks) and observability layer. Large open-source community but minimal funding.</dd>
+      <dt>InfiniteWatch</dt>
+      <dd>$4M pre-seed (December 2025, <a href="https://www.prnewswire.com/news-releases/infinitewatch-announces-4m-pre-seed-led-by-base10-partners-to-power-agentic-customer-interaction-intelligence-302646343.html">Base10</a>). Ex-CoverWallet team. Monitors AI agents across voice and web. Session Replay Agent and Voice Agent products. Analyzes 2M+ customer interactions monthly. Targets agentic customer interaction intelligence.</dd>
+      <dt>OpenObserve</dt>
+      <dd>$3.6M seed (2022, <a href="https://openobserve.ai/about/">Nexus, Dell Capital</a>). Rust-based open-source observability. Claims 140x lower storage costs via Apache Parquet columnar storage. 2.6TB/day ingestion on single node. Positions as cost-efficient Datadog/Splunk alternative.</dd>
+      <dt>Middleware</dt>
+      <dd>YC, <a href="https://venturebeat.com/ai/middleware-raises-6-5m-to-simplify-cloud-monitoring-with-ai">$6.5M seed</a> (2023). AI-based full-stack observability. Unified platform covering logs, metrics, traces, and RUM. Developer-friendly positioning with per-core pricing model.</dd>
+      <dt>Last9</dt>
+      <dd><a href="https://last9.io/blog/announcing-our-series-a/">$13M total</a> (Series A led by Sequoia India / Peak XV). High-cardinality metrics platform (Levitate). 20M+ cardinality per metric &ndash; purpose-built for K8s environments with dynamic labels. India-based, targeting global cloud-native teams.</dd>
+    </dl>
+    <p class="note">The pattern across early-stage companies: nearly all are either OTel-native, eBPF-based, AI-agent-focused, or some combination. No funded startup in 2025&ndash;2026 has launched with proprietary-only instrumentation.</p>
   </div>
 
   <div class="entry" id="patterns">
-    <div class="entry-head"><span class="entry-num">23.</span> Acquisition Patterns</div>
+    <div class="entry-head"><span class="entry-num">26.</span> Acquisition Patterns</div>
     <p>Three patterns are visible across the startup and M&amp;A landscape.</p>
-    <p><span class="term">OTel-native is a prerequisite.</span> Every funded startup in this space is built on OTel or at minimum OTLP-compatible. Proprietary-only instrumentation is no longer fundable for new entrants. The floor of the market has moved.</p>
-    <p><span class="term">AI observability draws disproportionate capital.</span> Arize ($131M), Braintrust ($800M valuation), and the Langfuse acquisition all reflect a bet on the AI workload monitoring opportunity. Capital is flowing in ahead of revenue, on the expectation that every enterprise deploying AI will need to observe it.</p>
-    <p><span class="term">Incumbents are buying, not building.</span> Datadog&rsquo;s strategic investment in Arize, Snowflake&rsquo;s $1B Observe acquisition, ClickHouse&rsquo;s Langfuse acquisition, and Dash0&rsquo;s Lumigo acquisition demonstrate that the build-vs-buy calculus has tipped toward buy for both AI and OTel-native capabilities. The velocity of the AI market and the architectural specificity of OTel-native backends make organic development too slow for companies that need these capabilities now.</p>
+    <p><span class="term">OTel-native is table stakes.</span> Every funded startup is built on OTel or at minimum OTLP-compatible. Proprietary-only instrumentation is no longer fundable for new entrants.</p>
+    <p><span class="term">AI observability draws disproportionate capital.</span> Arize ($131M), Braintrust ($800M valuation), the Langfuse acquisition, and the Aporia acquisition all reflect a bet on the AI workload monitoring opportunity. Capital is flowing ahead of revenue.</p>
+    <p><span class="term">Incumbents are buying, not building.</span> Datadog&rsquo;s strategic investment in Arize, Snowflake&rsquo;s $1B Observe acquisition, ClickHouse&rsquo;s Langfuse acquisition, Coralogix&rsquo;s Aporia acquisition, and Dash0&rsquo;s Lumigo acquisition demonstrate that the build-vs-buy calculus has tipped. The velocity of the AI market and the architectural specificity of OTel-native backends make organic development too slow.</p>
+
+    <svg class="chart" viewBox="0 0 460 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Startup landscape scatter/bubble -->
+      <text x="230" y="14" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#999" font-style="italic" text-anchor="middle">Startup landscape: funding vs. acquisition likelihood</text>
+      <!-- axes -->
+      <line x1="40" y1="30" x2="40" y2="220" stroke="#ccc" stroke-width="0.5"/>
+      <line x1="40" y1="220" x2="440" y2="220" stroke="#ccc" stroke-width="0.5"/>
+      <text x="240" y="245" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#999" text-anchor="middle">Total funding &rarr;</text>
+      <text x="15" y="125" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#999" text-anchor="middle" transform="rotate(-90 15 125)">Acquisition likelihood &rarr;</text>
+      <!-- scale marks -->
+      <text x="40" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$0</text>
+      <text x="140" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$50M</text>
+      <text x="240" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$150M</text>
+      <text x="340" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$300M</text>
+      <text x="440" y="235" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#bbb" text-anchor="middle">$400M</text>
+      <!-- Bubbles: x = funding, y = acq likelihood (lower = higher), size = relative significance -->
+      <!-- SigNoz: $6.5M, high acq -->
+      <circle cx="53" cy="55" r="8" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="53" y="44" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">SigNoz</text>
+      <!-- Helicone: $0.5M, high acq -->
+      <circle cx="41" cy="70" r="6" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="55" y="73" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666">Helicone</text>
+      <!-- Laminar: $3M, high acq -->
+      <circle cx="46" cy="60" r="6" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="46" y="50" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle" style="display:none">Laminar</text>
+      <!-- Odigos: $13M, med-high -->
+      <circle cx="66" cy="85" r="9" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="66" y="75" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Odigos</text>
+      <!-- Groundcover: $60M, med-high -->
+      <circle cx="120" cy="80" r="11" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="120" y="68" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Groundcover</text>
+      <!-- Honeycomb: $150M, high -->
+      <circle cx="240" cy="55" r="12" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="240" y="43" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Honeycomb</text>
+      <!-- Arize: $131M, med-high -->
+      <circle cx="215" cy="80" r="13" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="215" y="68" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Arize AI</text>
+      <!-- Coralogix: $115M (E round), medium -->
+      <circle cx="195" cy="130" r="14" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="195" y="118" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Coralogix</text>
+      <!-- Dash0: $155M, med-term -->
+      <circle cx="250" cy="140" r="14" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="250" y="128" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Dash0</text>
+      <!-- Braintrust: $80M, medium -->
+      <circle cx="136" cy="120" r="11" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="136" y="108" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Braintrust</text>
+      <!-- Chronosphere: $343M, medium -->
+      <circle cx="353" cy="140" r="15" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="353" y="128" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Chronosphere</text>
+      <!-- Cribl: $319M, low (IPO) -->
+      <circle cx="340" cy="200" r="16" fill="none" stroke="#999" stroke-width="0.8"/>
+      <text x="340" y="188" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#666" text-anchor="middle">Cribl</text>
+    </svg>
+
     <dl class="defs defs-wide">
       <dt>Dash0</dt>
-      <dd>Medium-term. Growing too fast to sell cheap. Likely buyers: Cisco, IBM, ServiceNow.</dd>
+      <dd>Medium-term. Growing too fast to sell cheap. Likely: Cisco, IBM, ServiceNow.</dd>
+      <dt>Coralogix</dt>
+      <dd>Medium. $1B unicorn with AI + security angles. Likely: Cisco, Oracle, SAP.</dd>
       <dt>Chronosphere</dt>
-      <dd>Medium. High valuation may be stale. Likely buyers: Cisco, Oracle, SAP.</dd>
+      <dd>Medium. Growth unclear, valuation may be stale. Likely: Cisco, Oracle.</dd>
       <dt>Honeycomb</dt>
-      <dd>High. Revenue-to-funding gap makes standalone path difficult. Likely buyers: Datadog, Cisco, ServiceNow.</dd>
+      <dd>High. Revenue gap makes standalone path hard. Likely: Datadog, Cisco, ServiceNow.</dd>
       <dt>SigNoz</dt>
-      <dd>High. Small and acquirable. Langfuse/ClickHouse pattern. Likely buyers: ClickHouse, Elastic, any DB vendor.</dd>
+      <dd>High. Small, acquirable. Langfuse pattern. Likely: ClickHouse, Elastic.</dd>
       <dt>Groundcover</dt>
-      <dd>Medium-high. eBPF + BYOC fills gaps for multiple acquirers. Likely buyers: Datadog, Dynatrace, CrowdStrike.</dd>
-      <dt>Bindplane</dt>
-      <dd>Medium-high. OpAMP expertise is strategically scarce. Likely buyers: Google, Datadog, Elastic.</dd>
+      <dd>Medium-high. eBPF + BYOC fills gaps. Likely: Datadog, Dynatrace, CrowdStrike.</dd>
+      <dt>Odigos</dt>
+      <dd>Medium-high. OTel eBPF SIG credibility. Likely: Datadog, Grafana, Dynatrace.</dd>
       <dt>Arize AI</dt>
-      <dd>Medium-high. Datadog is already a strategic investor. Likely buyers: Datadog, Cisco/Splunk.</dd>
+      <dd>Medium-high. Datadog already invested. Likely: Datadog, Cisco/Splunk.</dd>
       <dt>Braintrust</dt>
-      <dd>Medium. Fast-rising AI evaluation platform. Likely buyers: Microsoft, Salesforce, Datadog.</dd>
+      <dd>Medium. Fast-rising AI eval. Likely: Microsoft, Salesforce, Datadog.</dd>
+      <dt>Cribl</dt>
+      <dd>Low. IPO track. Too large for most acquirers.</dd>
     </dl>
-    <p class="sources"><a href="https://thenewstack.io/opentelemetry-opens-the-door-for-observability-startups/">The New Stack</a></p>
   </div>
 
   <footer>

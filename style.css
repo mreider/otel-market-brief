@@ -188,22 +188,37 @@ h1 {
   text-indent: 0 !important;
 }
 
-/* source links */
-.sources {
-  font-size: 0.82em;
-  color: #888;
-  margin-top: 0.3em;
+/* inline citation links */
+.entry a {
+  color: #555;
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+  text-underline-offset: 2px;
 }
 
-.sources a {
-  color: #666;
-  text-decoration: none;
-  border-bottom: 0.5pt dotted #aaa;
+.entry a:hover {
+  color: #1a1a1a;
+  text-decoration-color: #666;
 }
 
-.sources a:hover {
-  color: #333;
-  border-bottom-color: #333;
+.defs a {
+  color: #555;
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+  text-underline-offset: 2px;
+}
+
+.defs a:hover {
+  color: #1a1a1a;
+  text-decoration-color: #666;
+}
+
+/* SVG chart containers */
+.chart {
+  display: block;
+  margin: 1.5em auto;
+  width: 90%;
+  height: auto;
 }
 
 /* footer */
