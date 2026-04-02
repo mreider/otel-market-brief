@@ -10,7 +10,7 @@
 <body>
 
   <h1>OpenTelemetry, AI, and the Observability Market</h1>
-  <p class="subtitle">April 2026</p>
+  <p class="subtitle">Matthew Reider &middot; April 2026</p>
 
   <nav class="toc">
     <div class="toc-label">Contents</div>
@@ -34,13 +34,14 @@
       <li><a href="#ai-for-observability"><span class="num">17</span> AI for Observability</a></li>
       <li><a href="#observability-for-ai"><span class="num">18</span> Observability for AI</a></li>
       <li><a href="#ai-market"><span class="num">19</span> AI Observability Market</a></li>
-      <li><a href="#recent-acquisitions"><span class="num">20</span> Recent Acquisitions</a></li>
-      <li><a href="#otel-native-startups"><span class="num">21</span> OTel-Native Startups</a></li>
-      <li><a href="#k8s-infra"><span class="num">22</span> Kubernetes &amp; Infrastructure</a></li>
-      <li><a href="#pipelines"><span class="num">23</span> Telemetry Pipelines</a></li>
-      <li><a href="#ai-startups"><span class="num">24</span> AI Observability Startups</a></li>
-      <li><a href="#early-stage"><span class="num">25</span> Early Stage &amp; Long Tail</a></li>
-      <li><a href="#patterns"><span class="num">26</span> Acquisition Patterns</a></li>
+      <li><a href="#emerging-areas"><span class="num">20</span> Emerging Areas</a></li>
+      <li><a href="#recent-acquisitions"><span class="num">21</span> Recent Acquisitions</a></li>
+      <li><a href="#otel-native-startups"><span class="num">22</span> OTel-Native Startups</a></li>
+      <li><a href="#k8s-infra"><span class="num">23</span> Kubernetes &amp; Infrastructure</a></li>
+      <li><a href="#pipelines"><span class="num">24</span> Telemetry Pipelines</a></li>
+      <li><a href="#ai-startups"><span class="num">25</span> AI Observability Startups</a></li>
+      <li><a href="#early-stage"><span class="num">26</span> Early Stage &amp; Long Tail</a></li>
+      <li><a href="#patterns"><span class="num">27</span> Acquisition Patterns</a></li>
     </ol>
   </nav>
 
@@ -59,6 +60,33 @@
       <dt>Gartner</dt>
       <dd>12% CAGR through 2027 for the observability sector within infrastructure software. (<a href="https://www.gartner.com/en/documents/5486095">report</a>)</dd>
     </dl>
+    <p>For perspective, observability is a small but fast-growing slice of enterprise software. The cybersecurity market is roughly 50x larger at ~$220B (<a href="https://www.fortunebusinessinsights.com/industry-reports/cyber-security-market-101165">Fortune Business Insights</a>); CRM is ~$90&ndash;113B (<a href="https://www.mordorintelligence.com/industry-reports/customer-relationship-management-market">Mordor Intelligence</a>); and cloud infrastructure services (IaaS+PaaS) exceed $400B (<a href="https://www.statista.com/chart/18819/worldwide-market-share-of-leading-cloud-infrastructure-service-providers/">Statista</a>). The closest peer is the DevOps tools market at $15&ndash;18B (<a href="https://www.mordorintelligence.com/industry-reports/devops-market">Mordor Intelligence</a>). Observability sits within and alongside DevOps, but its growth rate outpaces the broader category &ndash; and AI observability&rsquo;s 36% CAGR puts it among the fastest-growing segments in enterprise infrastructure software.</p>
+
+    <svg class="chart" viewBox="0 0 460 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="12" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#999" font-style="italic">Market size comparison (2025, $B) &ndash; log scale for readability</text>
+      <!-- Cybersecurity -->
+      <text x="0" y="38" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a">Cybersecurity</text>
+      <rect x="90" y="28" width="330" height="14" fill="#e0dcd6" rx="1"/>
+      <text x="425" y="39" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">~$220B</text>
+      <!-- CRM -->
+      <text x="0" y="58" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a">CRM</text>
+      <rect x="90" y="48" width="200" height="14" fill="#e0dcd6" rx="1"/>
+      <text x="296" y="59" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">~$100B</text>
+      <!-- DevOps -->
+      <text x="0" y="78" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a">DevOps tools</text>
+      <rect x="90" y="68" width="55" height="14" fill="#d9d4cc" rx="1"/>
+      <text x="151" y="79" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">~$16B</text>
+      <!-- Observability -->
+      <text x="0" y="98" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a" font-weight="600">Observability</text>
+      <rect x="90" y="88" width="18" height="14" fill="#ccc6bc" rx="1"/>
+      <text x="114" y="99" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">~$4B</text>
+      <!-- AI Observability -->
+      <text x="0" y="118" font-family="'Crimson Text', Georgia, serif" font-size="10" fill="#1a1a1a">AI observability</text>
+      <rect x="90" y="108" width="8" height="14" fill="#b8b0a5" rx="1"/>
+      <text x="104" y="119" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#666">~$2B &middot; 36% CAGR</text>
+      <text x="230" y="145" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#aaa" font-style="italic" text-anchor="middle">Bars not to scale &ndash; illustrative relative sizing</text>
+    </svg>
+
     <p>Growth is driven by cloud-native complexity, Kubernetes adoption, the proliferation of microservices, and the emerging requirement to monitor AI workloads. Observability spend has become a top-three cloud cost line item for many enterprises, which simultaneously fuels demand and creates pricing sensitivity &ndash; a tension visible across the vendor landscape.</p>
     <p>The 2025 <a href="https://www.gartner.com/en/documents/6688834">Gartner Magic Quadrant for Observability Platforms</a> evaluated 20 vendors and named six Leaders: Datadog (fifth consecutive year), Dynatrace (fifteenth consecutive year, highest on Ability to Execute), Elastic, Grafana Labs, IBM, and Splunk. Grafana Labs appeared as a Leader for the first time, reflecting the mainstreaming of open-source observability.</p>
   </div>
@@ -344,8 +372,71 @@ gen_ai.operation.name         gen_ai.system</div>
   <div class="phase">Emerging Players</div>
   <!-- ——————————————————————————— -->
 
+  <div class="entry" id="emerging-areas">
+    <div class="entry-head"><span class="entry-num">20.</span> Emerging Areas</div>
+    <p>Six distinct areas have emerged where startups are clustering and capital is concentrating. Each represents a gap in the incumbent platforms, an expansion of what &ldquo;observability&rdquo; means, or both.</p>
+
+    <svg class="chart" viewBox="0 0 460 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="230" y="14" font-family="'Crimson Text', Georgia, serif" font-size="9" fill="#999" font-style="italic" text-anchor="middle">Where startups are clustering</text>
+      <!-- Grid of 6 boxes, 2x3 -->
+      <!-- Row 1 -->
+      <rect x="10" y="26" width="140" height="80" fill="none" stroke="#ccc" stroke-width="0.5" rx="3"/>
+      <text x="80" y="44" font-family="'Crimson Text', Georgia, serif" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="600">OTel-Native Backends</text>
+      <text x="80" y="58" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#888" text-anchor="middle">Full-stack on open standards</text>
+      <text x="80" y="72" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Dash0 &middot; Coralogix &middot; SigNoz</text>
+      <text x="80" y="84" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Honeycomb &middot; OpenObserve</text>
+      <text x="80" y="98" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#aaa" text-anchor="middle">Threat to: Datadog, Dynatrace</text>
+
+      <rect x="160" y="26" width="140" height="80" fill="none" stroke="#ccc" stroke-width="0.5" rx="3"/>
+      <text x="230" y="44" font-family="'Crimson Text', Georgia, serif" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="600">eBPF Zero-Code</text>
+      <text x="230" y="58" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#888" text-anchor="middle">Kernel-level auto-instrumentation</text>
+      <text x="230" y="72" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Groundcover &middot; Odigos</text>
+      <text x="230" y="84" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">OTel OBI SIG</text>
+      <text x="230" y="98" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#aaa" text-anchor="middle">Threat to: proprietary agents</text>
+
+      <rect x="310" y="26" width="140" height="80" fill="none" stroke="#ccc" stroke-width="0.5" rx="3"/>
+      <text x="380" y="44" font-family="'Crimson Text', Georgia, serif" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="600">AI Agent Tracing</text>
+      <text x="380" y="58" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#888" text-anchor="middle">Multi-step agent observability</text>
+      <text x="380" y="72" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Laminar &middot; InfiniteWatch</text>
+      <text x="380" y="84" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Helicone</text>
+      <text x="380" y="98" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#aaa" text-anchor="middle">Threat to: APM incumbents</text>
+
+      <!-- Row 2 -->
+      <rect x="10" y="116" width="140" height="80" fill="none" stroke="#ccc" stroke-width="0.5" rx="3"/>
+      <text x="80" y="134" font-family="'Crimson Text', Georgia, serif" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="600">LLM Eval &amp; Monitoring</text>
+      <text x="80" y="148" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#888" text-anchor="middle">Model quality and cost</text>
+      <text x="80" y="162" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Arize &middot; Braintrust</text>
+      <text x="80" y="174" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Langfuse (acq&rsquo;d)</text>
+      <text x="80" y="188" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#aaa" text-anchor="middle">Threat to: none yet (greenfield)</text>
+
+      <rect x="160" y="116" width="140" height="80" fill="none" stroke="#ccc" stroke-width="0.5" rx="3"/>
+      <text x="230" y="134" font-family="'Crimson Text', Georgia, serif" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="600">Telemetry Pipelines</text>
+      <text x="230" y="148" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#888" text-anchor="middle">Route, filter, reduce cost</text>
+      <text x="230" y="162" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Cribl &middot; Bindplane</text>
+      <text x="230" y="174" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">&nbsp;</text>
+      <text x="230" y="188" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#aaa" text-anchor="middle">Threat to: vendor pricing models</text>
+
+      <rect x="310" y="116" width="140" height="80" fill="none" stroke="#ccc" stroke-width="0.5" rx="3"/>
+      <text x="380" y="134" font-family="'Crimson Text', Georgia, serif" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="600">K8s-Native + AI SRE</text>
+      <text x="380" y="148" font-family="'Crimson Text', Georgia, serif" font-size="8" fill="#888" text-anchor="middle">Kubernetes-specific platforms</text>
+      <text x="380" y="162" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Metoro &middot; Last9</text>
+      <text x="380" y="174" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#999" text-anchor="middle">Middleware</text>
+      <text x="380" y="188" font-family="'Crimson Text', Georgia, serif" font-size="7" fill="#aaa" text-anchor="middle">Threat to: general-purpose tools</text>
+
+      <!-- Legend line -->
+      <text x="230" y="215" font-family="'Crimson Text', Georgia, serif" font-size="7.5" fill="#aaa" font-style="italic" text-anchor="middle">Clustering based on primary value proposition and competitive positioning</text>
+    </svg>
+
+    <p><span class="term">OTel-native backends</span> compete directly with Datadog and Dynatrace on the premise that open-standard collection plus a purpose-built backend delivers comparable value at lower cost and without lock-in. Dash0&rsquo;s $1B valuation in under three years is the proof point for this thesis.</p>
+    <p><span class="term">eBPF zero-code instrumentation</span> attacks the primary friction point of OTel adoption &ndash; that SDK-based instrumentation requires developer effort. If kernel-level eBPF can deliver baseline visibility through an open standard, the value proposition of proprietary agents narrows. The OTel OBI SIG (Grafana, Splunk, Odigos, Coralogix) is the community effort; Groundcover is the funded commercial play.</p>
+    <p><span class="term">AI agent tracing</span> is the most novel category. Existing observability tools were designed for request/response architectures. AI agents that run for hours, use tools, retrieve documents, and make branching decisions require new tracing primitives &ndash; session replay, decision-path visualization, trajectory anomaly detection. Laminar, InfiniteWatch, and Helicone are early entrants.</p>
+    <p><span class="term">LLM evaluation and monitoring</span> is adjacent to but distinct from traditional observability. Arize and Braintrust focus on model quality (hallucination rates, evaluation benchmarks, prompt/response scoring) rather than infrastructure metrics. This is largely a greenfield market &ndash; incumbents are building but startups are further along.</p>
+    <p><span class="term">Telemetry pipelines</span> sit between producers and consumers of observability data. They exist because observability costs have become untenable &ndash; Cribl&rsquo;s entire $3.5B valuation rests on the fact that enterprises pay too much to store and query telemetry they don&rsquo;t need.</p>
+    <p><span class="term">K8s-native + AI SRE</span> platforms combine Kubernetes-specific telemetry with AI-driven troubleshooting. The bet is that Kubernetes environments are complex enough and distinct enough from traditional infrastructure to warrant purpose-built tools rather than general-purpose platforms with K8s add-ons.</p>
+  </div>
+
   <div class="entry" id="recent-acquisitions">
-    <div class="entry-head"><span class="entry-num">20.</span> Recent Acquisitions</div>
+    <div class="entry-head"><span class="entry-num">21.</span> Recent Acquisitions</div>
     <p>Four acquisitions in the six months preceding this report indicate sustained buyer appetite and reveal which capabilities acquirers are prioritizing.</p>
     <dl class="defs">
       <dt>Observe</dt>
@@ -360,7 +451,7 @@ gen_ai.operation.name         gen_ai.system</div>
   </div>
 
   <div class="entry" id="otel-native-startups">
-    <div class="entry-head"><span class="entry-num">21.</span> OTel-Native Startups</div>
+    <div class="entry-head"><span class="entry-num">22.</span> OTel-Native Startups</div>
     <p>A cohort of startups built from the ground up on OpenTelemetry, with no proprietary agent or format. Their existence is a direct consequence of collection commoditization.</p>
     <dl class="defs">
       <dt>Dash0</dt>
@@ -377,7 +468,7 @@ gen_ai.operation.name         gen_ai.system</div>
   </div>
 
   <div class="entry" id="k8s-infra">
-    <div class="entry-head"><span class="entry-num">22.</span> Kubernetes &amp; Infrastructure</div>
+    <div class="entry-head"><span class="entry-num">23.</span> Kubernetes &amp; Infrastructure</div>
     <dl class="defs">
       <dt>Groundcover</dt>
       <dd>$60M total (Series B $35M, April 2025, <a href="https://siliconangle.com/2025/04/10/observability-startup-groundcover-bags-35m-new-funding-take-datadog/">SiliconANGLE</a>). eBPF-based, K8s-purpose-built. &ldquo;Bring your own cloud&rdquo; model &ndash; telemetry stays in customer infra. 500%+ ARR growth. Fortune 100 customers. Zero-instrumentation via eBPF. (<a href="https://www.networkworld.com/article/3960548/groundcover-grows-funding-for-ebpf-based-observability-tech.html">Network World</a>)</dd>
@@ -391,13 +482,13 @@ gen_ai.operation.name         gen_ai.system</div>
   </div>
 
   <div class="entry" id="pipelines">
-    <div class="entry-head"><span class="entry-num">23.</span> Telemetry Pipelines</div>
+    <div class="entry-head"><span class="entry-num">24.</span> Telemetry Pipelines</div>
     <p><span class="term">Cribl</span> is the dominant independent telemetry pipeline, positioned at the strategic chokepoint between data producers and observability backends. Cribl Stream routes, filters, and transforms data before it reaches the backend, enabling 30&ndash;90% cost reduction. $319M Series E (August 2024, GV) at $3.5B valuation. $200M ARR as of January 2025. (<a href="https://news.crunchbase.com/venture/data-infrastructure-startup-cribl-gv-investment/">Crunchbase News</a>; <a href="https://www.techtarget.com/searchdatamanagement/news/366609255/Cribl-positions-for-IPO-with-319M-in-latest-funding-round">TechTarget</a>)</p>
     <p>At this scale, Cribl is an IPO candidate rather than an acquisition target. The pipeline layer&rsquo;s strategic significance &ndash; controlling data flow, reducing costs, enabling multi-vendor strategies &ndash; makes it a company that Datadog competes against rather than acquires.</p>
   </div>
 
   <div class="entry" id="ai-startups">
-    <div class="entry-head"><span class="entry-num">24.</span> AI Observability Startups</div>
+    <div class="entry-head"><span class="entry-num">25.</span> AI Observability Startups</div>
     <p>Pure-play AI observability companies are drawing disproportionate capital relative to current revenue, reflecting a bet on the 36% CAGR forecast.</p>
     <dl class="defs">
       <dt>Arize AI</dt>
@@ -408,7 +499,7 @@ gen_ai.operation.name         gen_ai.system</div>
   </div>
 
   <div class="entry" id="early-stage">
-    <div class="entry-head"><span class="entry-num">25.</span> Early Stage &amp; Long Tail</div>
+    <div class="entry-head"><span class="entry-num">26.</span> Early Stage &amp; Long Tail</div>
     <p>Below the growth-stage companies, a long tail of seed and pre-seed startups reflects where the next wave of innovation and acquisition targets is forming.</p>
     <dl class="defs">
       <dt>Laminar</dt>
@@ -428,7 +519,7 @@ gen_ai.operation.name         gen_ai.system</div>
   </div>
 
   <div class="entry" id="patterns">
-    <div class="entry-head"><span class="entry-num">26.</span> Acquisition Patterns</div>
+    <div class="entry-head"><span class="entry-num">27.</span> Acquisition Patterns</div>
     <p>Three patterns are visible across the startup and M&amp;A landscape.</p>
     <p><span class="term">OTel-native is table stakes.</span> Every funded startup is built on OTel or at minimum OTLP-compatible. Proprietary-only instrumentation is no longer fundable for new entrants.</p>
     <p><span class="term">AI observability draws disproportionate capital.</span> Arize ($131M), Braintrust ($800M valuation), the Langfuse acquisition, and the Aporia acquisition all reflect a bet on the AI workload monitoring opportunity. Capital is flowing ahead of revenue.</p>
