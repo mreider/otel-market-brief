@@ -431,17 +431,24 @@ gen_ai.operation.name         gen_ai.system</div>
 
   <div class="entry" id="recent-acquisitions">
     <div class="entry-head"><span class="entry-num">21.</span> Recent Acquisitions</div>
-    <p>Four acquisitions in the six months preceding this report indicate sustained buyer appetite and reveal which capabilities acquirers are prioritizing.</p>
+    <p>Seven observability-related acquisitions in the twelve months preceding this report &ndash; an unprecedented pace &ndash; reveal which capabilities buyers are prioritizing and which company types are acquiring.</p>
     <dl class="defs">
       <dt>Observe</dt>
-      <dd>Snowflake, ~$1B (January 2026). Snowflake&rsquo;s largest acquisition. Signals data platform companies see observability as a natural extension. (<a href="https://techcrunch.com/2026/01/08/snowflake-announces-its-intent-to-buy-observability-platform-observe/">TechCrunch</a>)</dd>
+      <dd>Snowflake, ~$1B (January 2026). Snowflake&rsquo;s largest acquisition. Data platform companies see observability as a natural extension of their storage layer. (<a href="https://techcrunch.com/2026/01/08/snowflake-announces-its-intent-to-buy-observability-platform-observe/">TechCrunch</a>)</dd>
       <dt>Langfuse</dt>
-      <dd>ClickHouse (January 2026). Open-source LLM tracing platform (YC W23, MIT-licensed). OTel-integrated. Database companies are buying AI observability capabilities. (<a href="https://github.com/langfuse/langfuse">GitHub</a>)</dd>
+      <dd>ClickHouse (January 2026). Open-source LLM tracing (YC W23, MIT-licensed, 2K+ paying customers including 19 Fortune 50). Database infrastructure companies are buying AI observability. (<a href="https://github.com/langfuse/langfuse">GitHub</a>)</dd>
+      <dt>Traceloop</dt>
+      <dd>ServiceNow, $60&ndash;80M (March 2026). Creators of <a href="https://github.com/traceloop/openllmetry">OpenLLMetry</a>, the open-source OTel-native LLM tracing library. Raised only $6.1M &ndash; a ~10&ndash;13x return for investors. OpenLLMetry remains open source. IT platform companies are buying OTel-native AI observability.</dd>
+      <dt>Helicone</dt>
+      <dd>Mintlify (March 2026). LLM gateway and observability (YC W23). 16K organizations, 2B+ LLM interactions. Developer tooling companies are acquiring AI observability. (<a href="https://www.helicone.ai/">Helicone</a>)</dd>
       <dt>Lumigo</dt>
       <dd>Dash0 (February 2026). Serverless/AWS-native observability. Brought Lambda and LLM observability into Dash0&rsquo;s OTel stack. (<a href="https://www.dash0.com/blog/dash0-raises-usd110m-series-b">Dash0</a>)</dd>
+      <dt>Highlight.io</dt>
+      <dd>LaunchDarkly (April 2025). Session replay + backend traces ($8M raised). Feature flag companies are acquiring observability for the developer workflow. (<a href="https://www.highlight.io/">Highlight.io</a>)</dd>
       <dt>Aporia</dt>
-      <dd>Coralogix (January 2025). AI observability and guardrails. Led to the launch of Coralogix AI Center three months later. (<a href="https://coralogix.com/blog/coralogix-raises-115m-series-e-to-fuel-ai-powered-observability/">Coralogix</a>)</dd>
+      <dd>Coralogix (January 2025). AI observability and guardrails. Led to the Coralogix AI Center launch three months later. (<a href="https://coralogix.com/blog/coralogix-raises-115m-series-e-to-fuel-ai-powered-observability/">Coralogix</a>)</dd>
     </dl>
+    <p class="note">The buyer profile is striking: a data warehouse (Snowflake), a database engine (ClickHouse), an IT workflow platform (ServiceNow), a developer docs company (Mintlify), a feature flag vendor (LaunchDarkly), and two observability incumbents (Dash0, Coralogix). Observability is being absorbed into adjacent platform layers, not just consolidated within its own market.</p>
   </div>
 
   <div class="entry" id="otel-native-startups">
@@ -498,18 +505,26 @@ gen_ai.operation.name         gen_ai.system</div>
     <dl class="defs">
       <dt>Laminar</dt>
       <dd>YC S24, $3M seed (March 2026, <a href="https://tech.eu/2026/03/17/agent-debugging-startup-laminar-raises-3m-seed-to-tackle-the-observability-gap-in-ai-agents/">Atlantic.vc</a>). Open-source AI agent debugging with browser session replay synced to traces. Customers include Browser Use and OpenHands. Notable angel: Ben Sigelman (OTel co-creator). Purpose-built for AI agents that run for hours and generate thousands of spans.</dd>
-      <dt>Helicone</dt>
-      <dd>YC W23, $500K. Open-source LLM gateway and observability. Processed <a href="https://www.helicone.ai/">2B+ LLM interactions</a>. Rust-based distributed architecture (Cloudflare Workers, ClickHouse, Kafka). Functions as both an AI gateway (routing, fallbacks) and observability layer. Large open-source community but minimal funding.</dd>
+      <dt>Pydantic Logfire</dt>
+      <dd>$17.2M total (Sequoia-led Series A). OTel-native observability from the creators of Pydantic, the Python data validation library used by most major AI/ML frameworks. Distribution moat: Pydantic is installed 250M+ times/month. Logfire instruments Python AI workloads with zero added dependencies. A wedge play into AI observability via Python dominance.</dd>
+      <dt>Langtrace</dt>
+      <dd>$5.3M seed (<a href="https://www.redpoint.com/">Redpoint Ventures</a>). OTel-native LLM observability with 30+ framework integrations. Positions on open standards where Arize and Braintrust use proprietary schemas.</dd>
       <dt>InfiniteWatch</dt>
       <dd>$4M pre-seed (December 2025, <a href="https://www.prnewswire.com/news-releases/infinitewatch-announces-4m-pre-seed-led-by-base10-partners-to-power-agentic-customer-interaction-intelligence-302646343.html">Base10</a>). Ex-CoverWallet team. Monitors AI agents across voice and web. Session Replay Agent and Voice Agent products. Analyzes 2M+ customer interactions monthly. Targets agentic customer interaction intelligence.</dd>
       <dt>OpenObserve</dt>
       <dd>$3.6M seed (2022, <a href="https://openobserve.ai/about/">Nexus, Dell Capital</a>). Rust-based open-source observability. Claims 140x lower storage costs via Apache Parquet columnar storage. 2.6TB/day ingestion on single node. Positions as cost-efficient Datadog/Splunk alternative.</dd>
+      <dt>Axiom</dt>
+      <dd>$41.4M total (Series B, February 2025). Petabyte-scale, schema-less data backend for logs, traces, and events. Angels include Nat Friedman (ex-GitHub CEO) and Adam Wiggins (Heroku founder). Positions on unlimited data retention at fixed cost &ndash; the anti-Datadog pricing model.</dd>
       <dt>Middleware</dt>
-      <dd>YC, <a href="https://venturebeat.com/ai/middleware-raises-6-5m-to-simplify-cloud-monitoring-with-ai">$6.5M seed</a> (2023). AI-based full-stack observability. Unified platform covering logs, metrics, traces, and RUM. Developer-friendly positioning with per-core pricing model.</dd>
+      <dd>YC, <a href="https://venturebeat.com/ai/middleware-raises-6-5m-to-simplify-cloud-monitoring-with-ai">$6.5M seed</a> (2023). AI-based full-stack observability. Unified platform covering logs, metrics, traces, and RUM. Per-core pricing. Guillermo Rauch (Vercel CEO) as investor.</dd>
       <dt>Last9</dt>
-      <dd><a href="https://last9.io/blog/announcing-our-series-a/">$13M total</a> (Series A led by Sequoia India / Peak XV). High-cardinality metrics platform (Levitate). 20M+ cardinality per metric &ndash; purpose-built for K8s environments with dynamic labels. India-based, targeting global cloud-native teams.</dd>
+      <dd><a href="https://last9.io/blog/announcing-our-series-a/">$13M total</a> (Series A led by Sequoia India / Peak XV). High-cardinality metrics platform (Levitate). 20M+ cardinality per metric &ndash; purpose-built for K8s environments with dynamic labels.</dd>
+      <dt>Embrace</dt>
+      <dd>Mobile-first OTel observability. Backed by NEA and YC. Customers include New York Times, Marriott, and Home Depot. Contributed the Kotlin OTel SDK upstream &ndash; filling a gap in OTel&rsquo;s mobile coverage. One of the few startups addressing the RUM/mobile signal gap noted in Section 6.</dd>
+      <dt>DeepEval</dt>
+      <dd>$2.2M seed. Open-source LLM evaluation framework, reportedly the most widely adopted. Used by teams at OpenAI, Google, and Microsoft for model testing. Evaluation tooling is the adjacent layer to LLM observability &ndash; complementary acquisition target.</dd>
     </dl>
-    <p class="note">The pattern across early-stage companies: nearly all are either OTel-native, eBPF-based, AI-agent-focused, or some combination. No funded startup in 2025&ndash;2026 has launched with proprietary-only instrumentation.</p>
+    <p class="note">The pattern across early-stage companies: nearly all are OTel-native, eBPF-based, AI-agent-focused, or some combination. No funded startup in 2025&ndash;2026 has launched with proprietary-only instrumentation. And the acquisition clock is fast: Traceloop achieved a ~10&ndash;13x return in under three years; Helicone and Langfuse were acquired within two years of YC graduation.</p>
   </div>
 
   <div class="entry" id="patterns">
@@ -517,7 +532,7 @@ gen_ai.operation.name         gen_ai.system</div>
     <p>Three patterns are visible across the startup and M&amp;A landscape.</p>
     <p><span class="term">OTel-native is table stakes.</span> Every funded startup is built on OTel or at minimum OTLP-compatible. Proprietary-only instrumentation is no longer fundable for new entrants.</p>
     <p><span class="term">AI observability draws disproportionate capital.</span> Arize ($131M), Braintrust ($800M valuation), the Langfuse acquisition, and the Aporia acquisition all reflect a bet on the AI workload monitoring opportunity. Capital is flowing ahead of revenue.</p>
-    <p><span class="term">Incumbents are buying, not building.</span> Datadog&rsquo;s strategic investment in Arize, Snowflake&rsquo;s $1B Observe acquisition, ClickHouse&rsquo;s Langfuse acquisition, Coralogix&rsquo;s Aporia acquisition, and Dash0&rsquo;s Lumigo acquisition demonstrate that the build-vs-buy calculus has tipped. The velocity of the AI market and the architectural specificity of OTel-native backends make organic development too slow.</p>
+    <p><span class="term">Everyone is buying, not building.</span> Seven acquisitions in twelve months &ndash; by a data warehouse, a database engine, an IT workflow platform, a developer docs company, a feature flag vendor, and two observability startups &ndash; demonstrate that the build-vs-buy calculus has tipped across the entire software stack. The velocity of the AI market and the architectural specificity of OTel-native backends make organic development too slow. Traceloop&rsquo;s ~10&ndash;13x return on $6.1M raised, achieved in under three years, sets the benchmark for what small OTel-native AI observability startups can exit for.</p>
 
     <svg class="chart" viewBox="0 0 460 260" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Startup landscape scatter/bubble -->
